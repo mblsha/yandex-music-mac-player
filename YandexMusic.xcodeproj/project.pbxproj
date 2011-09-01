@@ -1,0 +1,450 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		79369171140F70EE0064ADCE /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79369170140F70EE0064ADCE /* Cocoa.framework */; };
+		7936917B140F70EE0064ADCE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 79369179140F70EE0064ADCE /* InfoPlist.strings */; };
+		7936917D140F70EE0064ADCE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7936917C140F70EE0064ADCE /* main.m */; };
+		79369181140F70EE0064ADCE /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 7936917F140F70EE0064ADCE /* Credits.rtf */; };
+		79369184140F70EE0064ADCE /* YandexMusicAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 79369183140F70EE0064ADCE /* YandexMusicAppDelegate.m */; };
+		79369187140F70EE0064ADCE /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79369185140F70EE0064ADCE /* MainMenu.xib */; };
+		7936918F140F70EE0064ADCE /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7936918E140F70EE0064ADCE /* SenTestingKit.framework */; };
+		79369190140F70EE0064ADCE /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79369170140F70EE0064ADCE /* Cocoa.framework */; };
+		79369198140F70EE0064ADCE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 79369196140F70EE0064ADCE /* InfoPlist.strings */; };
+		7936919B140F70EE0064ADCE /* YandexMusicTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7936919A140F70EE0064ADCE /* YandexMusicTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		79369191140F70EE0064ADCE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 79369163140F70EE0064ADCE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7936916B140F70EE0064ADCE;
+			remoteInfo = YandexMusic;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		7936916C140F70EE0064ADCE /* YandexMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YandexMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		79369170140F70EE0064ADCE /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		79369173140F70EE0064ADCE /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		79369174140F70EE0064ADCE /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		79369175140F70EE0064ADCE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		79369178140F70EE0064ADCE /* YandexMusic-Info.plist */ = {isa = PBXFileReference; path = "YandexMusic-Info.plist"; sourceTree = "<group>"; };
+		7936917A140F70EE0064ADCE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		7936917C140F70EE0064ADCE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7936917E140F70EE0064ADCE /* YandexMusic-Prefix.pch */ = {isa = PBXFileReference; path = "YandexMusic-Prefix.pch"; sourceTree = "<group>"; };
+		79369180140F70EE0064ADCE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		79369182140F70EE0064ADCE /* YandexMusicAppDelegate.h */ = {isa = PBXFileReference; path = YandexMusicAppDelegate.h; sourceTree = "<group>"; };
+		79369183140F70EE0064ADCE /* YandexMusicAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YandexMusicAppDelegate.m; sourceTree = "<group>"; };
+		79369186140F70EE0064ADCE /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		7936918D140F70EE0064ADCE /* YandexMusicTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YandexMusicTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7936918E140F70EE0064ADCE /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		79369195140F70EE0064ADCE /* YandexMusicTests-Info.plist */ = {isa = PBXFileReference; path = "YandexMusicTests-Info.plist"; sourceTree = "<group>"; };
+		79369197140F70EE0064ADCE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		79369199140F70EE0064ADCE /* YandexMusicTests.h */ = {isa = PBXFileReference; path = YandexMusicTests.h; sourceTree = "<group>"; };
+		7936919A140F70EE0064ADCE /* YandexMusicTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YandexMusicTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		79369169140F70EE0064ADCE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				79369171140F70EE0064ADCE /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		79369189140F70EE0064ADCE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7936918F140F70EE0064ADCE /* SenTestingKit.framework in Frameworks */,
+				79369190140F70EE0064ADCE /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		79369161140F70EE0064ADCE = {
+			isa = PBXGroup;
+			children = (
+				79369176140F70EE0064ADCE /* YandexMusic */,
+				79369193140F70EE0064ADCE /* YandexMusicTests */,
+				7936916F140F70EE0064ADCE /* Frameworks */,
+				7936916D140F70EE0064ADCE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7936916D140F70EE0064ADCE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7936916C140F70EE0064ADCE /* YandexMusic.app */,
+				7936918D140F70EE0064ADCE /* YandexMusicTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7936916F140F70EE0064ADCE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				79369170140F70EE0064ADCE /* Cocoa.framework */,
+				7936918E140F70EE0064ADCE /* SenTestingKit.framework */,
+				79369172140F70EE0064ADCE /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		79369172140F70EE0064ADCE /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				79369173140F70EE0064ADCE /* AppKit.framework */,
+				79369174140F70EE0064ADCE /* CoreData.framework */,
+				79369175140F70EE0064ADCE /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		79369176140F70EE0064ADCE /* YandexMusic */ = {
+			isa = PBXGroup;
+			children = (
+				79369182140F70EE0064ADCE /* YandexMusicAppDelegate.h */,
+				79369183140F70EE0064ADCE /* YandexMusicAppDelegate.m */,
+				79369185140F70EE0064ADCE /* MainMenu.xib */,
+				79369177140F70EE0064ADCE /* Supporting Files */,
+			);
+			path = YandexMusic;
+			sourceTree = "<group>";
+		};
+		79369177140F70EE0064ADCE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				79369178140F70EE0064ADCE /* YandexMusic-Info.plist */,
+				79369179140F70EE0064ADCE /* InfoPlist.strings */,
+				7936917C140F70EE0064ADCE /* main.m */,
+				7936917E140F70EE0064ADCE /* YandexMusic-Prefix.pch */,
+				7936917F140F70EE0064ADCE /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		79369193140F70EE0064ADCE /* YandexMusicTests */ = {
+			isa = PBXGroup;
+			children = (
+				79369199140F70EE0064ADCE /* YandexMusicTests.h */,
+				7936919A140F70EE0064ADCE /* YandexMusicTests.m */,
+				79369194140F70EE0064ADCE /* Supporting Files */,
+			);
+			path = YandexMusicTests;
+			sourceTree = "<group>";
+		};
+		79369194140F70EE0064ADCE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				79369195140F70EE0064ADCE /* YandexMusicTests-Info.plist */,
+				79369196140F70EE0064ADCE /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7936916B140F70EE0064ADCE /* YandexMusic */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7936919E140F70EE0064ADCE /* Build configuration list for PBXNativeTarget "YandexMusic" */;
+			buildPhases = (
+				79369168140F70EE0064ADCE /* Sources */,
+				79369169140F70EE0064ADCE /* Frameworks */,
+				7936916A140F70EE0064ADCE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = YandexMusic;
+			productName = YandexMusic;
+			productReference = 7936916C140F70EE0064ADCE /* YandexMusic.app */;
+			productType = "com.apple.product-type.application";
+		};
+		7936918C140F70EE0064ADCE /* YandexMusicTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 793691A1140F70EE0064ADCE /* Build configuration list for PBXNativeTarget "YandexMusicTests" */;
+			buildPhases = (
+				79369188140F70EE0064ADCE /* Sources */,
+				79369189140F70EE0064ADCE /* Frameworks */,
+				7936918A140F70EE0064ADCE /* Resources */,
+				7936918B140F70EE0064ADCE /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				79369192140F70EE0064ADCE /* PBXTargetDependency */,
+			);
+			name = YandexMusicTests;
+			productName = YandexMusicTests;
+			productReference = 7936918D140F70EE0064ADCE /* YandexMusicTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		79369163140F70EE0064ADCE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = MAZsoft;
+			};
+			buildConfigurationList = 79369166140F70EE0064ADCE /* Build configuration list for PBXProject "YandexMusic" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 79369161140F70EE0064ADCE;
+			productRefGroup = 7936916D140F70EE0064ADCE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7936916B140F70EE0064ADCE /* YandexMusic */,
+				7936918C140F70EE0064ADCE /* YandexMusicTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7936916A140F70EE0064ADCE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7936917B140F70EE0064ADCE /* InfoPlist.strings in Resources */,
+				79369181140F70EE0064ADCE /* Credits.rtf in Resources */,
+				79369187140F70EE0064ADCE /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7936918A140F70EE0064ADCE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				79369198140F70EE0064ADCE /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7936918B140F70EE0064ADCE /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		79369168140F70EE0064ADCE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7936917D140F70EE0064ADCE /* main.m in Sources */,
+				79369184140F70EE0064ADCE /* YandexMusicAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		79369188140F70EE0064ADCE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7936919B140F70EE0064ADCE /* YandexMusicTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		79369192140F70EE0064ADCE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7936916B140F70EE0064ADCE /* YandexMusic */;
+			targetProxy = 79369191140F70EE0064ADCE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		79369179140F70EE0064ADCE /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7936917A140F70EE0064ADCE /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		7936917F140F70EE0064ADCE /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				79369180140F70EE0064ADCE /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		79369185140F70EE0064ADCE /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				79369186140F70EE0064ADCE /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		79369196140F70EE0064ADCE /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				79369197140F70EE0064ADCE /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7936919C140F70EE0064ADCE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		7936919D140F70EE0064ADCE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		7936919F140F70EE0064ADCE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "YandexMusic/YandexMusic-Prefix.pch";
+				INFOPLIST_FILE = "YandexMusic/YandexMusic-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		793691A0140F70EE0064ADCE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "YandexMusic/YandexMusic-Prefix.pch";
+				INFOPLIST_FILE = "YandexMusic/YandexMusic-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		793691A2140F70EE0064ADCE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/YandexMusic.app/Contents/MacOS/YandexMusic";
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "YandexMusic/YandexMusic-Prefix.pch";
+				INFOPLIST_FILE = "YandexMusicTests/YandexMusicTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		793691A3140F70EE0064ADCE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/YandexMusic.app/Contents/MacOS/YandexMusic";
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "YandexMusic/YandexMusic-Prefix.pch";
+				INFOPLIST_FILE = "YandexMusicTests/YandexMusicTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		79369166140F70EE0064ADCE /* Build configuration list for PBXProject "YandexMusic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7936919C140F70EE0064ADCE /* Debug */,
+				7936919D140F70EE0064ADCE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7936919E140F70EE0064ADCE /* Build configuration list for PBXNativeTarget "YandexMusic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7936919F140F70EE0064ADCE /* Debug */,
+				793691A0140F70EE0064ADCE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		793691A1140F70EE0064ADCE /* Build configuration list for PBXNativeTarget "YandexMusicTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				793691A2140F70EE0064ADCE /* Debug */,
+				793691A3140F70EE0064ADCE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 79369163140F70EE0064ADCE /* Project object */;
+}
