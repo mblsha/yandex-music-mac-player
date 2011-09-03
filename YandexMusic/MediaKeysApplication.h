@@ -1,14 +1,15 @@
 //
-//  main.m
+//  MediaKeysApplication.h
 //  YandexMusic
 //
 //  Created by Michail Pishchagin on 9/1/11.
 //  Copyright 2011 mblshaworks. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
+#import <AppKit/AppKit.h>
 
-int main(int argc, char *argv[])
+@interface MediaKeysApplication : NSApplication
 {
-	return NSApplicationMain(argc, (const char **)argv);
 }
+
+@end

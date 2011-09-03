@@ -17,6 +17,10 @@
 		79369190140F70EE0064ADCE /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79369170140F70EE0064ADCE /* Cocoa.framework */; };
 		79369198140F70EE0064ADCE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 79369196140F70EE0064ADCE /* InfoPlist.strings */; };
 		7936919B140F70EE0064ADCE /* YandexMusicTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7936919A140F70EE0064ADCE /* YandexMusicTests.m */; };
+		793691A6140F72550064ADCE /* MediaKeysApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 793691A5140F72550064ADCE /* MediaKeysApplication.m */; };
+		79F4C8B0141286F6004B2422 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79F4C8AF141286F6004B2422 /* WebKit.framework */; };
+		79F4C8B81413CB05004B2422 /* menu_logo_16.png in Resources */ = {isa = PBXBuildFile; fileRef = 79F4C8B71413CB05004B2422 /* menu_logo_16.png */; };
+		79F4C8BA1413CB28004B2422 /* app.icns in Resources */ = {isa = PBXBuildFile; fileRef = 79F4C8B91413CB28004B2422 /* app.icns */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,20 +39,26 @@
 		79369173140F70EE0064ADCE /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		79369174140F70EE0064ADCE /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		79369175140F70EE0064ADCE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		79369178140F70EE0064ADCE /* YandexMusic-Info.plist */ = {isa = PBXFileReference; path = "YandexMusic-Info.plist"; sourceTree = "<group>"; };
+		79369178140F70EE0064ADCE /* YandexMusic-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "YandexMusic-Info.plist"; sourceTree = "<group>"; };
 		7936917A140F70EE0064ADCE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7936917C140F70EE0064ADCE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		7936917E140F70EE0064ADCE /* YandexMusic-Prefix.pch */ = {isa = PBXFileReference; path = "YandexMusic-Prefix.pch"; sourceTree = "<group>"; };
+		7936917E140F70EE0064ADCE /* YandexMusic-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YandexMusic-Prefix.pch"; sourceTree = "<group>"; };
 		79369180140F70EE0064ADCE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		79369182140F70EE0064ADCE /* YandexMusicAppDelegate.h */ = {isa = PBXFileReference; path = YandexMusicAppDelegate.h; sourceTree = "<group>"; };
+		79369182140F70EE0064ADCE /* YandexMusicAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YandexMusicAppDelegate.h; sourceTree = "<group>"; };
 		79369183140F70EE0064ADCE /* YandexMusicAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YandexMusicAppDelegate.m; sourceTree = "<group>"; };
 		79369186140F70EE0064ADCE /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		7936918D140F70EE0064ADCE /* YandexMusicTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YandexMusicTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7936918E140F70EE0064ADCE /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		79369195140F70EE0064ADCE /* YandexMusicTests-Info.plist */ = {isa = PBXFileReference; path = "YandexMusicTests-Info.plist"; sourceTree = "<group>"; };
+		79369195140F70EE0064ADCE /* YandexMusicTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "YandexMusicTests-Info.plist"; sourceTree = "<group>"; };
 		79369197140F70EE0064ADCE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		79369199140F70EE0064ADCE /* YandexMusicTests.h */ = {isa = PBXFileReference; path = YandexMusicTests.h; sourceTree = "<group>"; };
+		79369199140F70EE0064ADCE /* YandexMusicTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YandexMusicTests.h; sourceTree = "<group>"; };
 		7936919A140F70EE0064ADCE /* YandexMusicTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YandexMusicTests.m; sourceTree = "<group>"; };
+		793691A4140F72550064ADCE /* MediaKeysApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaKeysApplication.h; sourceTree = "<group>"; };
+		793691A5140F72550064ADCE /* MediaKeysApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaKeysApplication.m; sourceTree = "<group>"; };
+		79F4C8AF141286F6004B2422 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		79F4C8B41413C03D004B2422 /* YandexMusic.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = YandexMusic.entitlements; sourceTree = "<group>"; };
+		79F4C8B71413CB05004B2422 /* menu_logo_16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menu_logo_16.png; path = Resources/menu_logo_16.png; sourceTree = "<group>"; };
+		79F4C8B91413CB28004B2422 /* app.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = app.icns; path = Resources/app.icns; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79F4C8B0141286F6004B2422 /* WebKit.framework in Frameworks */,
 				79369171140F70EE0064ADCE /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -75,6 +86,7 @@
 		79369161140F70EE0064ADCE = {
 			isa = PBXGroup;
 			children = (
+				79F4C8AF141286F6004B2422 /* WebKit.framework */,
 				79369176140F70EE0064ADCE /* YandexMusic */,
 				79369193140F70EE0064ADCE /* YandexMusicTests */,
 				7936916F140F70EE0064ADCE /* Frameworks */,
@@ -114,6 +126,7 @@
 		79369176140F70EE0064ADCE /* YandexMusic */ = {
 			isa = PBXGroup;
 			children = (
+				79F4C8B41413C03D004B2422 /* YandexMusic.entitlements */,
 				79369182140F70EE0064ADCE /* YandexMusicAppDelegate.h */,
 				79369183140F70EE0064ADCE /* YandexMusicAppDelegate.m */,
 				79369185140F70EE0064ADCE /* MainMenu.xib */,
@@ -125,9 +138,13 @@
 		79369177140F70EE0064ADCE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				79F4C8B91413CB28004B2422 /* app.icns */,
+				79F4C8B71413CB05004B2422 /* menu_logo_16.png */,
 				79369178140F70EE0064ADCE /* YandexMusic-Info.plist */,
 				79369179140F70EE0064ADCE /* InfoPlist.strings */,
 				7936917C140F70EE0064ADCE /* main.m */,
+				793691A4140F72550064ADCE /* MediaKeysApplication.h */,
+				793691A5140F72550064ADCE /* MediaKeysApplication.m */,
 				7936917E140F70EE0064ADCE /* YandexMusic-Prefix.pch */,
 				7936917F140F70EE0064ADCE /* Credits.rtf */,
 			);
@@ -198,7 +215,8 @@
 		79369163140F70EE0064ADCE /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				ORGANIZATIONNAME = MAZsoft;
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = mblshaworks;
 			};
 			buildConfigurationList = 79369166140F70EE0064ADCE /* Build configuration list for PBXProject "YandexMusic" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -226,6 +244,8 @@
 				7936917B140F70EE0064ADCE /* InfoPlist.strings in Resources */,
 				79369181140F70EE0064ADCE /* Credits.rtf in Resources */,
 				79369187140F70EE0064ADCE /* MainMenu.xib in Resources */,
+				79F4C8B81413CB05004B2422 /* menu_logo_16.png in Resources */,
+				79F4C8BA1413CB28004B2422 /* app.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,6 +282,7 @@
 			files = (
 				7936917D140F70EE0064ADCE /* main.m in Sources */,
 				79369184140F70EE0064ADCE /* YandexMusicAppDelegate.m in Sources */,
+				793691A6140F72550064ADCE /* MediaKeysApplication.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,6 +456,7 @@
 				793691A0140F70EE0064ADCE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		793691A1140F70EE0064ADCE /* Build configuration list for PBXNativeTarget "YandexMusicTests" */ = {
 			isa = XCConfigurationList;
@@ -443,6 +465,7 @@
 				793691A3140F70EE0064ADCE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
