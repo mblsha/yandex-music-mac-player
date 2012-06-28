@@ -76,24 +76,30 @@ myCGEventCallback(CGEventTapProxy proxy, CGEventType type,
 //		int keyRepeat = (keyFlags & 0x1);
 //    NSLog(@"%x; %x, %x, %x", keyCode, keyFlags, keyState, keyRepeat);
     YandexMusicAppDelegate* self = (__bridge YandexMusicAppDelegate*)refcon;
+    bool handled = false;
 
     if (keyState) {
       switch (keyCode) {
         case NX_KEYTYPE_PLAY:
+          handled = true;
           [self musicPlayPause];
           break;
 
         case NX_KEYTYPE_FAST:
+          handled = true;
           [self musicFastForward];
           break;
 
         case NX_KEYTYPE_REWIND:
+          handled = true;
           [self musicRewind];
           break;
       }
     }
 
-    return NULL;
+    if (handled) {
+      return NULL;
+    }
   } else if([e type] == NSKeyDown || [e type] == NSKeyUp) {
     // do whatever you do with regular events
     // return NULL to kill the event
