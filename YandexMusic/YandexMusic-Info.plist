@@ -37,6 +37,6 @@
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
-	<string>MediaKeysApplication</string>
+	<string>NSApplication</string>
 </dict>
 </plist>

@@ -17,7 +17,6 @@
 		79369190140F70EE0064ADCE /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79369170140F70EE0064ADCE /* Cocoa.framework */; };
 		79369198140F70EE0064ADCE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 79369196140F70EE0064ADCE /* InfoPlist.strings */; };
 		7936919B140F70EE0064ADCE /* YandexMusicTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7936919A140F70EE0064ADCE /* YandexMusicTests.m */; };
-		793691A6140F72550064ADCE /* MediaKeysApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 793691A5140F72550064ADCE /* MediaKeysApplication.m */; };
 		79F4C8B0141286F6004B2422 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79F4C8AF141286F6004B2422 /* WebKit.framework */; };
 		79F4C8B81413CB05004B2422 /* menu_logo_16.png in Resources */ = {isa = PBXBuildFile; fileRef = 79F4C8B71413CB05004B2422 /* menu_logo_16.png */; };
 		79F4C8BA1413CB28004B2422 /* app.icns in Resources */ = {isa = PBXBuildFile; fileRef = 79F4C8B91413CB28004B2422 /* app.icns */; };
@@ -53,8 +52,6 @@
 		79369197140F70EE0064ADCE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		79369199140F70EE0064ADCE /* YandexMusicTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YandexMusicTests.h; sourceTree = "<group>"; };
 		7936919A140F70EE0064ADCE /* YandexMusicTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YandexMusicTests.m; sourceTree = "<group>"; };
-		793691A4140F72550064ADCE /* MediaKeysApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaKeysApplication.h; sourceTree = "<group>"; };
-		793691A5140F72550064ADCE /* MediaKeysApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaKeysApplication.m; sourceTree = "<group>"; };
 		79F4C8AF141286F6004B2422 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		79F4C8B41413C03D004B2422 /* YandexMusic.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = YandexMusic.entitlements; sourceTree = "<group>"; };
 		79F4C8B71413CB05004B2422 /* menu_logo_16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menu_logo_16.png; path = Resources/menu_logo_16.png; sourceTree = "<group>"; };
@@ -143,8 +140,6 @@
 				79369178140F70EE0064ADCE /* YandexMusic-Info.plist */,
 				79369179140F70EE0064ADCE /* InfoPlist.strings */,
 				7936917C140F70EE0064ADCE /* main.m */,
-				793691A4140F72550064ADCE /* MediaKeysApplication.h */,
-				793691A5140F72550064ADCE /* MediaKeysApplication.m */,
 				7936917E140F70EE0064ADCE /* YandexMusic-Prefix.pch */,
 				7936917F140F70EE0064ADCE /* Credits.rtf */,
 			);
@@ -215,7 +210,7 @@
 		79369163140F70EE0064ADCE /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0450;
 				ORGANIZATIONNAME = mblshaworks;
 			};
 			buildConfigurationList = 79369166140F70EE0064ADCE /* Build configuration list for PBXProject "YandexMusic" */;
@@ -282,7 +277,6 @@
 			files = (
 				7936917D140F70EE0064ADCE /* main.m in Sources */,
 				79369184140F70EE0064ADCE /* YandexMusicAppDelegate.m in Sources */,
-				793691A6140F72550064ADCE /* MediaKeysApplication.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -390,6 +384,7 @@
 		7936919F140F70EE0064ADCE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "YandexMusic/YandexMusic-Prefix.pch";
 				INFOPLIST_FILE = "YandexMusic/YandexMusic-Info.plist";
@@ -401,6 +396,7 @@
 		793691A0140F70EE0064ADCE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "YandexMusic/YandexMusic-Prefix.pch";
 				INFOPLIST_FILE = "YandexMusic/YandexMusic-Info.plist";
@@ -413,6 +409,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/YandexMusic.app/Contents/MacOS/YandexMusic";
+				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "YandexMusic/YandexMusic-Prefix.pch";
@@ -427,6 +424,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/YandexMusic.app/Contents/MacOS/YandexMusic";
+				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "YandexMusic/YandexMusic-Prefix.pch";
