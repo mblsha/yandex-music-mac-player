@@ -31,22 +31,47 @@
 }
 
 - (void)musicPlayPause {
-	NSString *state = [self eval:@"Mu.Player.state"];
-	if ([state isEqualTo:@"waiting"])
-		[self eval:@"$Mu.trigger(\"player_start\")"];
-	else if (![state isEqualTo:@"playing"])
-		[self eval:@"Mu.Player.resume()"];
-	else
-		[self eval:@"Mu.Player.pause()"];
+    NSString *state = [self eval:@"Mu.Player.state"];
+    if ([state isEqualTo:@"waiting"]) {
+        [self eval:@"$Mu.trigger(\"player_start\")"];
+        [self notifyCurrentTrackInfo];
+    } else if (![state isEqualTo:@"playing"]) {
+        [self eval:@"Mu.Player.resume()"];
+        [self notifyCurrentTrackInfo];
+    } else
+        [self eval:@"Mu.Player.pause()"];
 }
 
 - (void)musicFastForward {
-	[self eval:@"Mu.Songbird.playNext()"];
+    [self eval:@"Mu.Songbird.playNext()"];
+    [self notifyCurrentTrackInfo];
 }
 
 - (void)musicRewind {
-	[self eval:@"Mu.Songbird.playPrev()"];
+    [self eval:@"Mu.Songbird.playPrev()"];
+    [self notifyCurrentTrackInfo];
 }
+
+
+- (void)notifyCurrentTrackInfo {
+
+    NSString *playing = [self eval:@"Mu.Player.isPlaying()"];
+    if ([playing isEqual:@"false"]){
+        return;
+    }
+
+    NSString *title = [self eval:@"Mu.Player.currentEntry.getTrack().title"];
+    NSString *artist = [self eval:@"Mu.Player.currentEntry.getTrack().artist"];
+
+    NSUserNotification *notification = [[NSUserNotification alloc] init];
+    [notification setTitle:artist];
+    [notification setInformativeText:title];
+    [notification setHasActionButton:NO];
+
+    NSUserNotificationCenter *nc = [NSUserNotificationCenter defaultUserNotificationCenter];
+    [nc deliverNotification:notification];
+}
+
 
 - (IBAction)showBrowser:(id)sender {
 	[_window makeKeyAndOrderFront:self];
