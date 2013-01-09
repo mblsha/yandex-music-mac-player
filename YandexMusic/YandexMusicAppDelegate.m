@@ -31,45 +31,48 @@
 }
 
 - (void)musicPlayPause {
-    NSString *state = [self eval:@"Mu.Player.state"];
-    if ([state isEqualTo:@"waiting"]) {
-        [self eval:@"$Mu.trigger(\"player_start\")"];
-        [self notifyCurrentTrackInfo];
-    } else if (![state isEqualTo:@"playing"]) {
-        [self eval:@"Mu.Player.resume()"];
-        [self notifyCurrentTrackInfo];
-    } else
-        [self eval:@"Mu.Player.pause()"];
+  NSString *state = [self eval:@"Mu.Player.state"];
+  if ([state isEqualTo:@"waiting"]) {
+    [self eval:@"$Mu.trigger(\"player_start\")"];
+    [self notifyCurrentTrackInfo];
+  } else if (![state isEqualTo:@"playing"]) {
+    [self eval:@"Mu.Player.resume()"];
+    [self notifyCurrentTrackInfo];
+  } else
+    [self eval:@"Mu.Player.pause()"];
 }
 
 - (void)musicFastForward {
-    [self eval:@"Mu.Songbird.playNext()"];
-    [self notifyCurrentTrackInfo];
+  [self eval:@"Mu.Songbird.playNext()"];
+  [self notifyCurrentTrackInfo];
 }
 
 - (void)musicRewind {
-    [self eval:@"Mu.Songbird.playPrev()"];
-    [self notifyCurrentTrackInfo];
+  [self eval:@"Mu.Songbird.playPrev()"];
+  [self notifyCurrentTrackInfo];
 }
 
 
 - (void)notifyCurrentTrackInfo {
 
-    NSString *playing = [self eval:@"Mu.Player.isPlaying()"];
-    if ([playing isEqual:@"false"]){
-        return;
-    }
+  NSUserNotificationCenter *nc = [NSUserNotificationCenter defaultUserNotificationCenter];
+  if (nil == nc)
+    return;
 
-    NSString *title = [self eval:@"Mu.Player.currentEntry.getTrack().title"];
-    NSString *artist = [self eval:@"Mu.Player.currentEntry.getTrack().artist"];
+  NSString *playing = [self eval:@"Mu.Player.isPlaying()"];
+  if ([playing isEqual:@"false"]) {
+    return;
+  }
 
-    NSUserNotification *notification = [[NSUserNotification alloc] init];
-    [notification setTitle:artist];
-    [notification setInformativeText:title];
-    [notification setHasActionButton:NO];
+  NSString *title = [self eval:@"Mu.Player.currentEntry.getTrack().title"];
+  NSString *artist = [self eval:@"Mu.Player.currentEntry.getTrack().artist"];
 
-    NSUserNotificationCenter *nc = [NSUserNotificationCenter defaultUserNotificationCenter];
-    [nc deliverNotification:notification];
+  NSUserNotification *notification = [[NSUserNotification alloc] init];
+  [notification setTitle:artist];
+  [notification setInformativeText:title];
+  [notification setHasActionButton:NO];
+
+  [nc deliverNotification:notification];
 }
 
 
