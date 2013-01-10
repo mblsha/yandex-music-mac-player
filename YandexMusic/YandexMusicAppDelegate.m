@@ -31,21 +31,57 @@
 }
 
 - (void)musicPlayPause {
-	NSString *state = [self eval:@"Mu.Player.state"];
-	if ([state isEqualTo:@"waiting"])
-		[self eval:@"$Mu.trigger(\"player_start\")"];
-	else if (![state isEqualTo:@"playing"])
-		[self eval:@"Mu.Player.resume()"];
-	else
-		[self eval:@"Mu.Player.pause()"];
+  NSString *state = [self eval:@"Mu.Player.state"];
+  if ([state isEqualTo:@"waiting"]) {
+    [self eval:@"$Mu.trigger(\"player_start\")"];
+    [self notifyCurrentTrackInfo];
+  } else if (![state isEqualTo:@"playing"]) {
+    [self eval:@"Mu.Player.resume()"];
+    [self notifyCurrentTrackInfo];
+  } else
+    [self eval:@"Mu.Player.pause()"];
 }
 
 - (void)musicFastForward {
-	[self eval:@"Mu.Songbird.playNext()"];
+  [self eval:@"Mu.Songbird.playNext()"];
+  [self notifyCurrentTrackInfo];
 }
 
 - (void)musicRewind {
-	[self eval:@"Mu.Songbird.playPrev()"];
+  [self eval:@"Mu.Songbird.playPrev()"];
+  [self notifyCurrentTrackInfo];
+}
+
+
+- (void)notifyCurrentTrackInfo {
+
+  NSUserNotificationCenter *nc = [NSUserNotificationCenter defaultUserNotificationCenter];
+  if (nil == nc)
+    return;
+
+  NSString *playing = [self eval:@"Mu.Player.isPlaying()"];
+  if ([playing isEqual:@"false"]) {
+    return;
+  }
+
+  NSString *title = [self eval:@"Mu.Player.currentEntry.getTrack().title"];
+  NSString *artist = [self eval:@"Mu.Player.currentEntry.getTrack().artist"];
+
+  NSUserNotification *notification = [[NSUserNotification alloc] init];
+  [notification setTitle:artist];
+  [notification setInformativeText:title];
+  [notification setHasActionButton:NO];
+
+  [nc deliverNotification:notification];
+}
+
+- (void) userNotificationCenter:(NSUserNotificationCenter *)center didActivateNotification:(NSUserNotification *)notification {
+  NSRunAlertPanel([notification title], [notification informativeText], nil, nil, nil);
+}
+
+- (void) userNotificationCenter:(NSUserNotificationCenter *)center didDeliverNotification:(NSUserNotification *)notification {
+  [center removeDeliveredNotification: notification];
+  [self showBrowser:nil];
 }
 
 - (IBAction)showBrowser:(id)sender {

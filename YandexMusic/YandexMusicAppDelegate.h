@@ -9,7 +9,7 @@
 #import <Cocoa/Cocoa.h>
 #import <WebKit/WebKit.h>
 
-@interface YandexMusicAppDelegate : NSObject <NSApplicationDelegate>
+@interface YandexMusicAppDelegate : NSObject <NSApplicationDelegate, NSUserNotificationCenterDelegate>
 {
 	NSWindow *_window;
 	WebView *_webView;
