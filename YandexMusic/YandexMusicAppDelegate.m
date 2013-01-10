@@ -75,6 +75,14 @@
   [nc deliverNotification:notification];
 }
 
+- (void) userNotificationCenter:(NSUserNotificationCenter *)center didActivateNotification:(NSUserNotification *)notification {
+  NSRunAlertPanel([notification title], [notification informativeText], nil, nil, nil);
+}
+
+- (void) userNotificationCenter:(NSUserNotificationCenter *)center didDeliverNotification:(NSUserNotification *)notification {
+  [center removeDeliveredNotification: notification];
+  [self showBrowser:nil];
+}
 
 - (IBAction)showBrowser:(id)sender {
 	[_window makeKeyAndOrderFront:self];
