@@ -54,8 +54,8 @@
 
 
 - (void)notifyCurrentTrackInfo {
-
-  NSUserNotificationCenter *nc = [NSUserNotificationCenter defaultUserNotificationCenter];
+  NSUserNotificationCenter *nc =
+      [NSUserNotificationCenter defaultUserNotificationCenter];
   if (nil == nc)
     return;
 
@@ -75,12 +75,15 @@
   [nc deliverNotification:notification];
 }
 
-- (void) userNotificationCenter:(NSUserNotificationCenter *)center didActivateNotification:(NSUserNotification *)notification {
-  NSRunAlertPanel([notification title], [notification informativeText], nil, nil, nil);
+- (void)userNotificationCenter:(NSUserNotificationCenter *)center
+       didActivateNotification:(NSUserNotification *)notification {
+  NSRunAlertPanel([notification title],
+                  [notification informativeText], nil, nil, nil);
 }
 
-- (void) userNotificationCenter:(NSUserNotificationCenter *)center didDeliverNotification:(NSUserNotification *)notification {
-  [center removeDeliveredNotification: notification];
+- (void)userNotificationCenter:(NSUserNotificationCenter *)center
+        didDeliverNotification:(NSUserNotification *)notification {
+  [center removeDeliveredNotification:notification];
   [self showBrowser:nil];
 }
 
