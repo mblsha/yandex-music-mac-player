@@ -22,6 +22,7 @@
 		79F4C8BA1413CB28004B2422 /* app.icns in Resources */ = {isa = PBXBuildFile; fileRef = 79F4C8B91413CB28004B2422 /* app.icns */; };
 		B62E923C1729CCC200FC1547 /* SPMediaKeyTap.m in Sources */ = {isa = PBXBuildFile; fileRef = B62E923B1729CCC200FC1547 /* SPMediaKeyTap.m */; };
 		B6EADC541729CF4100C928D6 /* NSObject+SPInvocationGrabbing.m in Sources */ = {isa = PBXBuildFile; fileRef = B6EADC531729CF4100C928D6 /* NSObject+SPInvocationGrabbing.m */; };
+		B6EADC561729DD4E00C928D6 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6EADC551729DD4E00C928D6 /* Carbon.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		B62E923B1729CCC200FC1547 /* SPMediaKeyTap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPMediaKeyTap.m; path = SPMediaKeyTap/SPMediaKeyTap.m; sourceTree = SOURCE_ROOT; };
 		B6EADC521729CF4100C928D6 /* NSObject+SPInvocationGrabbing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+SPInvocationGrabbing.h"; path = "SPMediaKeyTap/SPInvocationGrabbing/NSObject+SPInvocationGrabbing.h"; sourceTree = SOURCE_ROOT; };
 		B6EADC531729CF4100C928D6 /* NSObject+SPInvocationGrabbing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+SPInvocationGrabbing.m"; path = "SPMediaKeyTap/SPInvocationGrabbing/NSObject+SPInvocationGrabbing.m"; sourceTree = SOURCE_ROOT; };
+		B6EADC551729DD4E00C928D6 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6EADC561729DD4E00C928D6 /* Carbon.framework in Frameworks */,
 				79F4C8B0141286F6004B2422 /* WebKit.framework in Frameworks */,
 				79369171140F70EE0064ADCE /* Cocoa.framework in Frameworks */,
 			);
@@ -89,7 +92,6 @@
 		79369161140F70EE0064ADCE = {
 			isa = PBXGroup;
 			children = (
-				79F4C8AF141286F6004B2422 /* WebKit.framework */,
 				79369176140F70EE0064ADCE /* YandexMusic */,
 				79369193140F70EE0064ADCE /* YandexMusicTests */,
 				7936916F140F70EE0064ADCE /* Frameworks */,
@@ -109,6 +111,8 @@
 		7936916F140F70EE0064ADCE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B6EADC551729DD4E00C928D6 /* Carbon.framework */,
+				79F4C8AF141286F6004B2422 /* WebKit.framework */,
 				79369170140F70EE0064ADCE /* Cocoa.framework */,
 				7936918E140F70EE0064ADCE /* SenTestingKit.framework */,
 				79369172140F70EE0064ADCE /* Other Frameworks */,
