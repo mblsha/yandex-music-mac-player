@@ -20,6 +20,8 @@
 		79F4C8B0141286F6004B2422 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79F4C8AF141286F6004B2422 /* WebKit.framework */; };
 		79F4C8B81413CB05004B2422 /* menu_logo_16.png in Resources */ = {isa = PBXBuildFile; fileRef = 79F4C8B71413CB05004B2422 /* menu_logo_16.png */; };
 		79F4C8BA1413CB28004B2422 /* app.icns in Resources */ = {isa = PBXBuildFile; fileRef = 79F4C8B91413CB28004B2422 /* app.icns */; };
+		B62E923C1729CCC200FC1547 /* SPMediaKeyTap.m in Sources */ = {isa = PBXBuildFile; fileRef = B62E923B1729CCC200FC1547 /* SPMediaKeyTap.m */; };
+		B6EADC541729CF4100C928D6 /* NSObject+SPInvocationGrabbing.m in Sources */ = {isa = PBXBuildFile; fileRef = B6EADC531729CF4100C928D6 /* NSObject+SPInvocationGrabbing.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +58,10 @@
 		79F4C8B41413C03D004B2422 /* YandexMusic.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = YandexMusic.entitlements; sourceTree = "<group>"; };
 		79F4C8B71413CB05004B2422 /* menu_logo_16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menu_logo_16.png; path = Resources/menu_logo_16.png; sourceTree = "<group>"; };
 		79F4C8B91413CB28004B2422 /* app.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = app.icns; path = Resources/app.icns; sourceTree = "<group>"; };
+		B62E923A1729CCC200FC1547 /* SPMediaKeyTap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPMediaKeyTap.h; path = SPMediaKeyTap/SPMediaKeyTap.h; sourceTree = SOURCE_ROOT; };
+		B62E923B1729CCC200FC1547 /* SPMediaKeyTap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPMediaKeyTap.m; path = SPMediaKeyTap/SPMediaKeyTap.m; sourceTree = SOURCE_ROOT; };
+		B6EADC521729CF4100C928D6 /* NSObject+SPInvocationGrabbing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+SPInvocationGrabbing.h"; path = "SPMediaKeyTap/SPInvocationGrabbing/NSObject+SPInvocationGrabbing.h"; sourceTree = SOURCE_ROOT; };
+		B6EADC531729CF4100C928D6 /* NSObject+SPInvocationGrabbing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+SPInvocationGrabbing.m"; path = "SPMediaKeyTap/SPInvocationGrabbing/NSObject+SPInvocationGrabbing.m"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +132,10 @@
 				79F4C8B41413C03D004B2422 /* YandexMusic.entitlements */,
 				79369182140F70EE0064ADCE /* YandexMusicAppDelegate.h */,
 				79369183140F70EE0064ADCE /* YandexMusicAppDelegate.m */,
+				B62E923A1729CCC200FC1547 /* SPMediaKeyTap.h */,
+				B62E923B1729CCC200FC1547 /* SPMediaKeyTap.m */,
+				B6EADC521729CF4100C928D6 /* NSObject+SPInvocationGrabbing.h */,
+				B6EADC531729CF4100C928D6 /* NSObject+SPInvocationGrabbing.m */,
 				79369185140F70EE0064ADCE /* MainMenu.xib */,
 				79369177140F70EE0064ADCE /* Supporting Files */,
 			);
@@ -277,6 +287,8 @@
 			files = (
 				7936917D140F70EE0064ADCE /* main.m in Sources */,
 				79369184140F70EE0064ADCE /* YandexMusicAppDelegate.m in Sources */,
+				B62E923C1729CCC200FC1547 /* SPMediaKeyTap.m in Sources */,
+				B6EADC541729CF4100C928D6 /* NSObject+SPInvocationGrabbing.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
