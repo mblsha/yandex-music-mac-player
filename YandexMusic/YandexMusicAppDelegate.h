@@ -8,12 +8,18 @@
 
 #import <Cocoa/Cocoa.h>
 #import <WebKit/WebKit.h>
+#import "../SPMediaKeyTap/SPMediaKeyTap.h"
+
+@interface YandexMusicApp : NSApplication
+@end
 
 @interface YandexMusicAppDelegate : NSObject <NSApplicationDelegate, NSUserNotificationCenterDelegate>
 {
 	NSWindow *_window;
 	WebView *_webView;
 	NSMenu *_statusMenu;
+
+	SPMediaKeyTap *keyTap;
 
 	NSStatusItem *_statusItem;
 }
