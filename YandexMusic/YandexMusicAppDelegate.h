@@ -15,13 +15,13 @@
 
 @interface YandexMusicAppDelegate : NSObject <NSApplicationDelegate, NSUserNotificationCenterDelegate>
 {
-	NSWindow *_window;
-	WebView *_webView;
-	NSMenu *_statusMenu;
+  NSWindow *_window;
+  WebView *_webView;
+  NSMenu *_statusMenu;
 
-	SPMediaKeyTap *keyTap;
+  SPMediaKeyTap *keyTap;
 
-	NSStatusItem *_statusItem;
+  NSStatusItem *_statusItem;
 }
 
 @property (strong) IBOutlet NSWindow *window;

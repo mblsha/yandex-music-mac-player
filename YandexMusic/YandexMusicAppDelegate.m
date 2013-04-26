@@ -11,15 +11,14 @@
 @implementation YandexMusicApp
 - (void)sendEvent:(NSEvent *)theEvent
 {
-	// If event tap is not installed, handle events that reach the app instead
-	BOOL shouldHandleMediaKeyEventLocally = ![SPMediaKeyTap usesGlobalMediaKeyTap];
+  // If event tap is not installed, handle events that reach the app instead
+  BOOL shouldHandleMediaKeyEventLocally = ![SPMediaKeyTap usesGlobalMediaKeyTap];
 
-	if(shouldHandleMediaKeyEventLocally
-			&& [theEvent type] == NSSystemDefined
-			&& [theEvent subtype] == SPSystemDefinedEventMediaKeys) {
-		[(id)[self delegate] mediaKeyTap:nil receivedMediaKeyEvent:theEvent];
-	}
-	[super sendEvent:theEvent];
+  if(shouldHandleMediaKeyEventLocally && [theEvent type] == NSSystemDefined
+                    && [theEvent subtype] == SPSystemDefinedEventMediaKeys) {
+    [(id)[self delegate] mediaKeyTap:nil receivedMediaKeyEvent:theEvent];
+  }
+  [super sendEvent:theEvent];
 }
 @end
 
@@ -31,32 +30,32 @@
 
 +(void)initialize;
 {
-	if([self class] != [YandexMusicAppDelegate class]) return;
+  if([self class] != [YandexMusicAppDelegate class]) return;
 
-	// Register defaults for the whitelist of apps that want to use media keys
-	[[NSUserDefaults standardUserDefaults] registerDefaults:[NSDictionary dictionaryWithObjectsAndKeys:
-		[SPMediaKeyTap defaultMediaKeyUserBundleIdentifiers], kMediaKeyUsingBundleIdentifiersDefaultsKey,
-	nil]];
+  // Register defaults for the whitelist of apps that want to use media keys
+  [[NSUserDefaults standardUserDefaults] registerDefaults:[NSDictionary dictionaryWithObjectsAndKeys:
+    [SPMediaKeyTap defaultMediaKeyUserBundleIdentifiers], kMediaKeyUsingBundleIdentifiersDefaultsKey,
+    nil]];
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-	keyTap = [[SPMediaKeyTap alloc] initWithDelegate:self];
-	if([SPMediaKeyTap usesGlobalMediaKeyTap])
-		[keyTap startWatchingMediaKeys];
-	else
-		NSLog(@"Media key monitoring disabled");
+  keyTap = [[SPMediaKeyTap alloc] initWithDelegate:self];
+  if([SPMediaKeyTap usesGlobalMediaKeyTap])
+    [keyTap startWatchingMediaKeys];
+  else
+    NSLog(@"Media key monitoring disabled");
 
-	_statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
-	[_statusItem setMenu:[self statusMenu]];
-	[_statusItem setImage:[NSImage imageNamed:@"menu_logo_16.png"]];
-	[_statusItem setHighlightMode:YES];
+  _statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
+  [_statusItem setMenu:[self statusMenu]];
+  [_statusItem setImage:[NSImage imageNamed:@"menu_logo_16.png"]];
+  [_statusItem setHighlightMode:YES];
 
-	[_webView setMainFrameURL:@"http://music.yandex.ru"];
+  [_webView setMainFrameURL:@"http://music.yandex.ru"];
 }
 
 - (NSString*)eval:(NSString*)javaScript {
-	return [_webView stringByEvaluatingJavaScriptFromString:javaScript];
+  return [_webView stringByEvaluatingJavaScriptFromString:javaScript];
 }
 
 - (void)musicPlayPause {
@@ -84,7 +83,7 @@
 
 - (void)notifyCurrentTrackInfo {
   NSUserNotificationCenter *nc =
-      [NSUserNotificationCenter defaultUserNotificationCenter];
+    [NSUserNotificationCenter defaultUserNotificationCenter];
   if (nil == nc)
     return;
 
@@ -117,39 +116,38 @@
 }
 
 - (IBAction)showBrowser:(id)sender {
-	[_window makeKeyAndOrderFront:self];
-	[NSApp activateIgnoringOtherApps:YES];
+  [_window makeKeyAndOrderFront:self];
+  [NSApp activateIgnoringOtherApps:YES];
 }
 
 - (IBAction)quit:(id)sender {
-	[NSApp terminate:self];
+  [NSApp terminate:self];
 }
 
 -(void)mediaKeyTap:(SPMediaKeyTap*)keyTap receivedMediaKeyEvent:(NSEvent*)event;
 {
-	NSAssert([event type] == NSSystemDefined && [event subtype] == SPSystemDefinedEventMediaKeys, @"Unexpected NSEvent in mediaKeyTap:receivedMediaKeyEvent:");
-	// here be dragons...
-	int keyCode = (([event data1] & 0xFFFF0000) >> 16);
-	int keyFlags = ([event data1] & 0x0000FFFF);
-	BOOL keyIsPressed = (((keyFlags & 0xFF00) >> 8)) == 0xA;
-	int keyRepeat = (keyFlags & 0x1);
+  NSAssert([event type] == NSSystemDefined && [event subtype] == SPSystemDefinedEventMediaKeys, @"Unexpected NSEvent in mediaKeyTap:receivedMediaKeyEvent:");
 
-	if (keyIsPressed) {
-		NSString *debugString = [NSString stringWithFormat:@"%@", keyRepeat?@", repeated.":@"."];
-		switch (keyCode) {
-			case NX_KEYTYPE_PLAY:
-				[self musicPlayPause];
-				break;
-			case NX_KEYTYPE_FAST:
-				[self musicFastForward];
-				break;
-			case NX_KEYTYPE_REWIND:
-				[self musicRewind];
-				break;
-			default:
-				break;
-		}
-	}
+  int keyCode = (([event data1] & 0xFFFF0000) >> 16);
+  int keyFlags = ([event data1] & 0x0000FFFF);
+  BOOL keyIsPressed = (((keyFlags & 0xFF00) >> 8)) == 0xA;
+  int keyRepeat = (keyFlags & 0x1);
+
+  if (keyIsPressed) {
+    switch (keyCode) {
+      case NX_KEYTYPE_PLAY:
+        [self musicPlayPause];
+        break;
+      case NX_KEYTYPE_FAST:
+        [self musicFastForward];
+        break;
+      case NX_KEYTYPE_REWIND:
+        [self musicRewind];
+        break;
+      default:
+        break;
+    }
+  }
 }
 
 @end
