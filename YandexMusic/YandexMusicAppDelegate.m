@@ -24,9 +24,9 @@
 
 @implementation YandexMusicAppDelegate
 
-@synthesize window = _window;
-@synthesize webView = _webView;
-@synthesize statusMenu = _statusMenu;
+@synthesize window;
+@synthesize webView;
+@synthesize statusMenu;
 
 +(void)initialize;
 {
@@ -46,16 +46,16 @@
   else
     NSLog(@"Media key monitoring disabled");
 
-  _statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
-  [_statusItem setMenu:[self statusMenu]];
-  [_statusItem setImage:[NSImage imageNamed:@"menu_logo_16.png"]];
-  [_statusItem setHighlightMode:YES];
+  statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
+  [statusItem setMenu:[self statusMenu]];
+  [statusItem setImage:[NSImage imageNamed:@"menu_logo_16.png"]];
+  [statusItem setHighlightMode:YES];
 
-  [_webView setMainFrameURL:@"http://music.yandex.ru"];
+  [webView setMainFrameURL:@"http://music.yandex.ru"];
 }
 
 - (NSString*)eval:(NSString*)javaScript {
-  return [_webView stringByEvaluatingJavaScriptFromString:javaScript];
+  return [webView stringByEvaluatingJavaScriptFromString:javaScript];
 }
 
 - (void)musicPlayPause {
@@ -116,7 +116,7 @@
 }
 
 - (IBAction)showBrowser:(id)sender {
-  [_window makeKeyAndOrderFront:self];
+  [window makeKeyAndOrderFront:self];
   [NSApp activateIgnoringOtherApps:YES];
 }
 
