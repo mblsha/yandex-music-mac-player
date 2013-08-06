@@ -30,6 +30,9 @@
 - (void)musicFastForward;
 - (void)musicRewind;
 
+- (IBAction)playPauseMusic:(id)sender;
+- (IBAction)fastForwardMusic:(id)sender;
+- (IBAction)rewindMusic:(id)sender;
 - (IBAction)showBrowser:(id)sender;
 - (IBAction)quit:(id)sender;
 
