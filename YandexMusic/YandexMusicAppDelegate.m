@@ -62,14 +62,11 @@ bool windowResized = false;
 
 - (void)webView:(WebView *)sender didFinishLoadForFrame:(WebFrame *)frame {
   if (!windowResized) {
-    //NSString* contentWidth = [self eval:@"document.body.scrollWidth"];
     NSInteger targetWidth = [[self eval:@"document.body.scrollWidth"] integerValue];
     
     [webView setFrameSize:NSMakeSize(targetWidth, webView.frame.size.height)];
     [window setFrame:NSMakeRect(window.frame.origin.x, window.frame.origin.y,
                                 targetWidth, window.frame.size.height) display:true];
-    
-    NSLog(@"calculated width: %ld", (long)targetWidth);
     
     windowResized = true;
   }
@@ -181,7 +178,6 @@ bool windowResized = false;
   int keyCode = (([event data1] & 0xFFFF0000) >> 16);
   int keyFlags = ([event data1] & 0x0000FFFF);
   BOOL keyIsPressed = (((keyFlags & 0xFF00) >> 8)) == 0xA;
-  //int keyRepeat = (keyFlags & 0x1); // unused var
 
   if (keyIsPressed) {
     switch (keyCode) {
