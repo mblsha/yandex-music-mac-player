@@ -61,8 +61,7 @@
 - (void)musicPlayPause {
   NSString *state = [self eval:@"Mu.Player.state"];
   if ([state isEqualTo:@"waiting"]) {
-    // Before we just did $Mu.trigger("player_start"), but $Mu var is no more.
-    [self eval:@"$('.b-jambox__play').click();"];
+    [self eval:@"Mu.events.trigger(\"player_start\")"];
     [self notifyCurrentTrackInfo];
   } else if (![state isEqualTo:@"playing"]) {
     [self eval:@"Mu.Player.resume()"];
