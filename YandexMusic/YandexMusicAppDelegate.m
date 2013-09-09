@@ -109,6 +109,7 @@
 - (void) jsNotify:(int)isPlaying {
     NSLog(@"yamusicapp.notify(%s)", isPlaying ? "true" : "false");
     [self notifyCurrentTrackInfo:isPlaying];
+    [self updateStatusIcon:isPlaying];
 }
 
 - (void) jsLog:(NSString*)theMessage {
@@ -154,6 +155,14 @@
   [notification setHasActionButton:NO];
 
   [nc deliverNotification:notification];
+}
+
+- (void)updateStatusIcon:(bool)isPlaying {
+  if (isPlaying) {
+    [statusItem setImage:[NSImage imageNamed:@"menu_logo_16_playing"]];
+  } else {
+    [statusItem setImage:[NSImage imageNamed:@"menu_logo_16"]];
+  }
 }
 
 - (void)userNotificationCenter:(NSUserNotificationCenter *)center

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		721DED9017AFC6D3006407C6 /* menu_logo_16_playing.png in Resources */ = {isa = PBXBuildFile; fileRef = 721DED8F17AFC6D3006407C6 /* menu_logo_16_playing.png */; };
 		79369171140F70EE0064ADCE /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79369170140F70EE0064ADCE /* Cocoa.framework */; };
 		7936917B140F70EE0064ADCE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 79369179140F70EE0064ADCE /* InfoPlist.strings */; };
 		7936917D140F70EE0064ADCE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7936917C140F70EE0064ADCE /* main.m */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		721DED8F17AFC6D3006407C6 /* menu_logo_16_playing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menu_logo_16_playing.png; path = Resources/menu_logo_16_playing.png; sourceTree = "<group>"; };
 		7936916C140F70EE0064ADCE /* YandexMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YandexMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79369170140F70EE0064ADCE /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		79369173140F70EE0064ADCE /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -149,6 +151,7 @@
 		79369177140F70EE0064ADCE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				721DED8F17AFC6D3006407C6 /* menu_logo_16_playing.png */,
 				79F4C8B91413CB28004B2422 /* app.icns */,
 				79F4C8B71413CB05004B2422 /* menu_logo_16.png */,
 				79369178140F70EE0064ADCE /* YandexMusic-Info.plist */,
@@ -255,6 +258,7 @@
 				79369187140F70EE0064ADCE /* MainMenu.xib in Resources */,
 				79F4C8B81413CB05004B2422 /* menu_logo_16.png in Resources */,
 				79F4C8BA1413CB28004B2422 /* app.icns in Resources */,
+				721DED9017AFC6D3006407C6 /* menu_logo_16_playing.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
