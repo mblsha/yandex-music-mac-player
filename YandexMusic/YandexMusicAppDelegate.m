@@ -108,48 +108,45 @@
 
 - (void) jsNotify:(int)isPlaying {
     NSLog(@"yamusicapp.notify(%s)", isPlaying ? "true" : "false");
+    [self notifyCurrentTrackInfo:isPlaying];
 }
 
 - (void) jsLog:(NSString*)theMessage {
-    NSLog(@"LOG: %@", theMessage);
+    NSLog(@"jsLog: %@", theMessage);
 }
 
 - (void)musicPlayPause {
   NSString *state = [self eval:@"Mu.Player.state"];
   if ([state isEqualTo:@"waiting"]) {
     [self eval:@"Mu.events.trigger(\"player_start\")"];
-    [self notifyCurrentTrackInfo];
   } else if (![state isEqualTo:@"playing"]) {
     [self eval:@"Mu.Player.resume()"];
-    [self notifyCurrentTrackInfo];
   } else
     [self eval:@"Mu.Player.pause()"];
 }
 
 - (void)musicFastForward {
   [self eval:@"Mu.Songbird.playNext()"];
-  [self notifyCurrentTrackInfo];
 }
 
 - (void)musicRewind {
   [self eval:@"Mu.Songbird.playPrev()"];
-  [self notifyCurrentTrackInfo];
 }
 
-
-- (void)notifyCurrentTrackInfo {
-  NSUserNotificationCenter *nc =
-    [NSUserNotificationCenter defaultUserNotificationCenter];
-  if (nil == nc)
-    return;
-
-  NSString *playing = [self eval:@"Mu.Player.isPlaying()"];
-  if ([playing isEqual:@"false"]) {
+- (void)notifyCurrentTrackInfo:(bool)isPlaying {
+  if(!isPlaying) {
+    NSLog(@"NOTIFY: not playing");
     return;
   }
 
   NSString *title = [self eval:@"Mu.Player.currentEntry.getTrack().title"];
   NSString *artist = [self eval:@"Mu.Player.currentEntry.getTrack().artist"];
+  NSLog(@"NOTIFY: %@ -- %@", artist, title);
+
+  NSUserNotificationCenter *nc =
+    [NSUserNotificationCenter defaultUserNotificationCenter];
+  if (nil == nc)
+    return;
 
   NSUserNotification *notification = [[NSUserNotification alloc] init];
   [notification setTitle:artist];
