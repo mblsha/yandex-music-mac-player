@@ -24,6 +24,7 @@
 
 @implementation YandexMusicAppDelegate
 
+@synthesize handlerInstalled;
 @synthesize window;
 @synthesize webView;
 @synthesize statusMenu;
@@ -52,10 +53,65 @@
   [statusItem setHighlightMode:YES];
 
   [webView setMainFrameURL:@"http://music.yandex.ru"];
+
+  handlerInstalled = @"NO";
+
+  // set our app as a Frame Load Delegate (in order to implement didClearWindowObject below)
+  [webView setFrameLoadDelegate:self];
 }
 
 - (NSString*)eval:(NSString*)javaScript {
   return [webView stringByEvaluatingJavaScriptFromString:javaScript];
+}
+
+- (void)webView:(WebView *)sender didClearWindowObject:(WebScriptObject *)windowScriptObject
+       forFrame:(WebFrame *)frame {
+
+    // install `window.yamusicapp` object into JavaScript
+    [windowScriptObject setValue:self forKey:@"yamusicapp"];
+
+    // set handler for playing/non-playing state
+    [self eval:@"(function() { "
+                   "if(yamusicapp.handlerInstalled !== \"NO\") { yamusicapp.log(\"handler already there\"); return; } "
+                   "yamusicapp.log(\"installing handler\"); "
+                   "Mu.events.bind(\"pl:onPlayTrack pl:onPause pl:onResume pl:onStop\", function(f) { "
+                     "var isPlaying = (f.type === \"pl:onResume\" || f.type === \"pl:onPlayTrack\"); "
+                     "yamusicapp.notify(isPlaying); "
+                   "}); "
+                   "yamusicapp.handlerInstalled = \"YES\"; "
+                "})();"];
+}
+
++ (BOOL)isSelectorExcludedFromWebScript:(SEL)selector {
+    if (selector == @selector(jsNotify:) || selector == @selector(jsLog:)) {
+        return NO;
+    }
+    return YES;
+}
+
++ (NSString *) webScriptNameForSelector:(SEL)sel {
+    if (sel == @selector(jsLog:)) {
+        return @"log";
+    } else if (sel == @selector(jsNotify:)) {
+        return @"notify";
+    } else {
+        return nil;
+    }
+}
+
++ (BOOL)isKeyExcludedFromWebScript:(const char *)property {
+    if (strcmp(property, "handlerInstalled") == 0) {
+        return NO;
+    }
+    return YES;
+}
+
+- (void) jsNotify:(int)isPlaying {
+    NSLog(@"yamusicapp.notify(%s)", isPlaying ? "true" : "false");
+}
+
+- (void) jsLog:(NSString*)theMessage {
+    NSLog(@"LOG: %@", theMessage);
 }
 
 - (void)musicPlayPause {

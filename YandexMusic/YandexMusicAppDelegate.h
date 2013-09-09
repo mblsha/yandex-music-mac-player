@@ -20,11 +20,13 @@
   NSMenu *statusMenu;
   NSStatusItem *statusItem;
   SPMediaKeyTap *keyTap;
+  NSString *handlerInstalled; /* shared between Objective-C and JavaScript */
 }
 
 @property (strong) IBOutlet NSWindow *window;
 @property (strong) IBOutlet WebView *webView;
 @property (strong) IBOutlet NSMenu *statusMenu;
+@property (nonatomic, copy) NSString *handlerInstalled;
 
 - (void)musicPlayPause;
 - (void)musicFastForward;
@@ -32,5 +34,18 @@
 
 - (IBAction)showBrowser:(id)sender;
 - (IBAction)quit:(id)sender;
+
+// Frame Load Delegate method
+- (void)webView:(WebView *)webView didClearWindowObject:(WebScriptObject *)windowScriptObject
+       forFrame:(WebFrame *)frame;
+
+// configure what is available to use from JavaScript
++ (BOOL)isSelectorExcludedFromWebScript:(SEL)selector;
++ (BOOL)isKeyExcludedFromWebScript:(const char *)property;
++ (NSString *) webScriptNameForSelector:(SEL)sel;
+
+// methods to share with JavaScript
+- (void) jsLog:(NSString*)theMessage;
+- (void) jsNotify:(int)isPlaying;
 
 @end
