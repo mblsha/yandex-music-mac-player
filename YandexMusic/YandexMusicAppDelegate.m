@@ -70,7 +70,7 @@
     // install `window.yamusicapp` object into JavaScript
     [windowScriptObject setValue:self forKey:@"yamusicapp"];
 
-    // set handler for playing/non-playing state
+    // inject JavaScript handler to track playing/non-playing state
     [self eval:@"(function() { "
                    "if(yamusicapp.handlerInstalled !== \"NO\") { yamusicapp.log(\"handler already there\"); return; } "
                    "yamusicapp.log(\"installing handler\"); "
@@ -82,6 +82,7 @@
                 "})();"];
 }
 
+// allow `notify()` and `log()` methods on (JavaScript) `yamusicapp` object
 + (BOOL)isSelectorExcludedFromWebScript:(SEL)selector {
     if (selector == @selector(jsNotify:) || selector == @selector(jsLog:)) {
         return NO;
@@ -89,6 +90,15 @@
     return YES;
 }
 
+// allow `handlerInstalled` property on `yamusicapp` object
++ (BOOL)isKeyExcludedFromWebScript:(const char *)property {
+    if (strcmp(property, "handlerInstalled") == 0) {
+        return NO;
+    }
+    return YES;
+}
+
+// setup ObjC <=> JavaScript names translation
 + (NSString *) webScriptNameForSelector:(SEL)sel {
     if (sel == @selector(jsLog:)) {
         return @"log";
@@ -99,17 +109,19 @@
     }
 }
 
-+ (BOOL)isKeyExcludedFromWebScript:(const char *)property {
-    if (strcmp(property, "handlerInstalled") == 0) {
-        return NO;
-    }
-    return YES;
-}
-
 - (void) jsNotify:(int)isPlaying {
-    NSLog(@"yamusicapp.notify(%s)", isPlaying ? "true" : "false");
-    [self notifyCurrentTrackInfo:isPlaying];
     [self updateStatusIcon:isPlaying];
+
+    if(!isPlaying) {
+        NSLog(@"NOTIFY: not playing");
+        return;
+    }
+
+    NSString *title = [self eval:@"Mu.Player.currentEntry.getTrack().title"];
+    NSString *artist = [self eval:@"Mu.Player.currentEntry.getTrack().artist"];
+    NSLog(@"NOTIFY: %@ -- %@", artist, title);
+
+    [self notifyCurrentTrackInfo:title trackArtist:artist];
 }
 
 - (void) jsLog:(NSString*)theMessage {
@@ -134,16 +146,8 @@
   [self eval:@"Mu.Songbird.playPrev()"];
 }
 
-- (void)notifyCurrentTrackInfo:(bool)isPlaying {
-  if(!isPlaying) {
-    NSLog(@"NOTIFY: not playing");
-    return;
-  }
-
-  NSString *title = [self eval:@"Mu.Player.currentEntry.getTrack().title"];
-  NSString *artist = [self eval:@"Mu.Player.currentEntry.getTrack().artist"];
-  NSLog(@"NOTIFY: %@ -- %@", artist, title);
-
+// show track info in notification center
+- (void)notifyCurrentTrackInfo:(NSString*)title trackArtist:(NSString*)artist {
   NSUserNotificationCenter *nc =
     [NSUserNotificationCenter defaultUserNotificationCenter];
   if (nil == nc)
