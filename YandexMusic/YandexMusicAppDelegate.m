@@ -28,6 +28,7 @@
 @synthesize window;
 @synthesize webView;
 @synthesize statusMenu;
+@synthesize playMenuItem;
 
 +(void)initialize;
 {
@@ -164,8 +165,10 @@
 - (void)updateStatusIcon:(bool)isPlaying {
   if (isPlaying) {
     [statusItem setImage:[NSImage imageNamed:@"menu_logo_16_playing"]];
+    [playMenuItem setTitle:@"Play        ❙❙"];
   } else {
     [statusItem setImage:[NSImage imageNamed:@"menu_logo_16"]];
+    [playMenuItem setTitle:@"Play        ▶"];
   }
 }
 
@@ -179,6 +182,18 @@
         didDeliverNotification:(NSUserNotification *)notification {
   [center removeDeliveredNotification:notification];
   [self showBrowser:nil];
+}
+
+- (IBAction)playPauseMusic:(id)sender {
+  [self musicPlayPause];
+}
+
+- (IBAction)fastForwardMusic:(id)sender {
+  [self musicFastForward];
+}
+
+- (IBAction)rewindMusic:(id)sender {
+  [self musicRewind];
 }
 
 - (IBAction)showBrowser:(id)sender {

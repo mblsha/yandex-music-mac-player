@@ -19,6 +19,7 @@
   WebView *webView;
   NSMenu *statusMenu;
   NSStatusItem *statusItem;
+  NSMenuItem *playMenuItem;
   SPMediaKeyTap *keyTap;
   NSString *handlerInstalled; /* shared between Objective-C and JavaScript */
 }
@@ -27,11 +28,15 @@
 @property (strong) IBOutlet WebView *webView;
 @property (strong) IBOutlet NSMenu *statusMenu;
 @property (nonatomic, copy) NSString *handlerInstalled;
+@property (strong) IBOutlet NSMenuItem *playMenuItem;
 
 - (void)musicPlayPause;
 - (void)musicFastForward;
 - (void)musicRewind;
 
+- (IBAction)playPauseMusic:(id)sender;
+- (IBAction)fastForwardMusic:(id)sender;
+- (IBAction)rewindMusic:(id)sender;
 - (IBAction)showBrowser:(id)sender;
 - (IBAction)quit:(id)sender;
 
