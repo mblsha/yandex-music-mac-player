@@ -168,7 +168,7 @@
 - (void)updateStatusIcon:(bool)isPlaying {
   if (isPlaying) {
     [statusItem setImage:[NSImage imageNamed:@"menu_logo_16_playing"]];
-    [playMenuItem setTitle:@"Play        ❙❙"];
+    [playMenuItem setTitle:@"Pause      ❙❙"];
   } else {
     [statusItem setImage:[NSImage imageNamed:@"menu_logo_16"]];
     [playMenuItem setTitle:@"Play        ▶"];
