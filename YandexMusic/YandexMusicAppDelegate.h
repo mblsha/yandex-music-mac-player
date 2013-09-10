@@ -20,6 +20,7 @@
   NSMenu *statusMenu;
   NSStatusItem *statusItem;
   NSMenuItem *playMenuItem;
+  NSMenuItem *trackInfoMenuItem;
   SPMediaKeyTap *keyTap;
   NSString *handlerInstalled; /* shared between Objective-C and JavaScript */
 }
@@ -29,6 +30,7 @@
 @property (strong) IBOutlet NSMenu *statusMenu;
 @property (nonatomic, copy) NSString *handlerInstalled;
 @property (strong) IBOutlet NSMenuItem *playMenuItem;
+@property (strong) IBOutlet NSMenuItem *trackInfoMenuItem;
 
 - (void)musicPlayPause;
 - (void)musicFastForward;

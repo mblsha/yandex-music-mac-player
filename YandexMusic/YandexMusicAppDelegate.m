@@ -29,6 +29,7 @@
 @synthesize webView;
 @synthesize statusMenu;
 @synthesize playMenuItem;
+@synthesize trackInfoMenuItem;
 
 +(void)initialize;
 {
@@ -120,9 +121,11 @@
 
     NSString *title = [self eval:@"Mu.Player.currentEntry.getTrack().title"];
     NSString *artist = [self eval:@"Mu.Player.currentEntry.getTrack().artist"];
-    NSLog(@"NOTIFY: %@ -- %@", artist, title);
-
     [self notifyCurrentTrackInfo:title trackArtist:artist];
+
+    NSString *trackInfo = [title stringByAppendingString:@" – "];
+    trackInfo = [trackInfo stringByAppendingString:artist];
+    [trackInfoMenuItem setTitle:trackInfo];
 }
 
 - (void) jsLog:(NSString*)theMessage {
