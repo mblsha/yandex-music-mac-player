@@ -56,6 +56,9 @@
 
   [webView setMainFrameURL:@"http://music.yandex.ru"];
 
+  // By default WebView is slightly scaled-down compared to Safari. This multiplier fixes it.
+  [webView setTextSizeMultiplier:1.4];
+
   handlerInstalled = @"NO";
 
   // set our app as a Frame Load Delegate (in order to implement didClearWindowObject below)
