@@ -55,6 +55,7 @@
   [statusItem setHighlightMode:YES];
 
   [webView setMainFrameURL:@"http://music.yandex.ru"];
+  [[webView preferences] setDefaultFontSize:16];
 
   handlerInstalled = @"NO";
 
