@@ -9,4 +9,4 @@ It's just a little wrapper that adds media keys support (Play / Pause, Fast-forw
 [Dowload for Mac OS 10.7](http://s3.amazonaws.com/YandexMusicMacPlayer/Yandex%20Music%20Mac%20Player%2010.7.dmg)  
 [Dowload for Mac OS 10.8](http://s3.amazonaws.com/YandexMusicMacPlayer/Yandex%20Music%20Mac%20Player%2010.8.dmg)
 
-(photo by [myfreeweb](http://www.flickr.com/photos/lol2fast4u/5036570278/))
+(keyboard photo by [myfreeweb](http://www.flickr.com/photos/lol2fast4u/5036570278/))
