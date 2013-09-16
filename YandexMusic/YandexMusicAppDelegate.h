@@ -22,13 +22,11 @@
   NSMenuItem *playMenuItem;
   NSMenuItem *trackInfoMenuItem;
   SPMediaKeyTap *keyTap;
-  NSString *handlerInstalled; /* shared between Objective-C and JavaScript */
 }
 
 @property (strong) IBOutlet NSWindow *window;
 @property (strong) IBOutlet WebView *webView;
 @property (strong) IBOutlet NSMenu *statusMenu;
-@property (nonatomic, copy) NSString *handlerInstalled;
 @property (strong) IBOutlet NSMenuItem *playMenuItem;
 @property (strong) IBOutlet NSMenuItem *trackInfoMenuItem;
 
@@ -48,7 +46,6 @@
 
 // configure what is available to use from JavaScript
 + (BOOL)isSelectorExcludedFromWebScript:(SEL)selector;
-+ (BOOL)isKeyExcludedFromWebScript:(const char *)property;
 + (NSString *) webScriptNameForSelector:(SEL)sel;
 
 // methods to share with JavaScript

@@ -24,7 +24,6 @@
 
 @implementation YandexMusicAppDelegate
 
-@synthesize handlerInstalled;
 @synthesize window;
 @synthesize webView;
 @synthesize statusMenu;
@@ -57,8 +56,6 @@
   [webView setMainFrameURL:@"http://music.yandex.ru"];
   [[webView preferences] setDefaultFontSize:16];
 
-  handlerInstalled = @"NO";
-
   // set our app as a Frame Load Delegate (in order to implement didClearWindowObject below)
   [webView setFrameLoadDelegate:self];
 }
@@ -75,27 +72,20 @@
 
     // inject JavaScript handler to track playing/non-playing state
     [self eval:@"(function() { "
-                   "if(yamusicapp.handlerInstalled !== \"NO\") { yamusicapp.log(\"handler already there\"); return; } "
+                   "if(window.MAC_APP_HANDLER_INSTALLED) { yamusicapp.log(\"handler already there\"); return; } "
                    "yamusicapp.log(\"installing handler\"); "
+                   "yamusicapp.notify(false); "
                    "Mu.events.bind(\"pl:onPlayTrack pl:onPause pl:onResume pl:onStop\", function(f) { "
                      "var isPlaying = (f.type === \"pl:onResume\" || f.type === \"pl:onPlayTrack\"); "
                      "yamusicapp.notify(isPlaying); "
                    "}); "
-                   "yamusicapp.handlerInstalled = \"YES\"; "
+                   "window.MAC_APP_HANDLER_INSTALLED = true; "
                 "})();"];
 }
 
 // allow `notify()` and `log()` methods on (JavaScript) `yamusicapp` object
 + (BOOL)isSelectorExcludedFromWebScript:(SEL)selector {
     if (selector == @selector(jsNotify:) || selector == @selector(jsLog:)) {
-        return NO;
-    }
-    return YES;
-}
-
-// allow `handlerInstalled` property on `yamusicapp` object
-+ (BOOL)isKeyExcludedFromWebScript:(const char *)property {
-    if (strcmp(property, "handlerInstalled") == 0) {
         return NO;
     }
     return YES;
