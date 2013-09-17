@@ -40,6 +40,17 @@
     nil]];
 }
 
+- (BOOL)windowShouldClose:(id)sender
+{
+  if ([window isEqualTo:sender]) {
+    // ugly hack to avoid disappearing sound on Mac OS 10.8.4
+    [window orderOut:self];
+    return NO;
+  } else {
+    return YES;
+  }
+}
+
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
   keyTap = [[SPMediaKeyTap alloc] initWithDelegate:self];
