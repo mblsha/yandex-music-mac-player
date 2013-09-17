@@ -58,11 +58,55 @@
 
   // set our app as a Frame Load Delegate (in order to implement didClearWindowObject below)
   [webView setFrameLoadDelegate:self];
+
+  // set our app as a WebUIDelegate and WebPolicyDelegate (for createWebViewWithRequest,
+  // decidePolicyForNewWindowAction, decidePolicyForNavigationAction below)
+  [webView setUIDelegate:self];
+  [webView setPolicyDelegate:self];
 }
 
 - (NSString*)eval:(NSString*)javaScript {
   return [webView stringByEvaluatingJavaScriptFromString:javaScript];
 }
+
+
+// Handle popup links (<href target="_blank"> and JavaScript window.open)
+// taken from http://stackoverflow.com/a/16868088/17708
+
+- (WebView *)webView:(WebView *)sender createWebViewWithRequest:(NSURLRequest *)request
+{
+  // HACK: This is all a hack to get around a bug/misfeature in Tiger's WebKit
+  // (should be fixed in Leopard [1]). On Javascript window.open, Tiger sends a null
+  // request here, then sends a loadRequest: to the new WebView, which will
+  // include a decidePolicyForNavigation (which is where we'll open our
+  // external window). In Leopard, we should be getting the request here from
+  // the start, and we should just be able to create a new window.
+
+  // [1]: @shamrin: it wasn't fixed - request is null in Lion. Hack is still needed.
+
+  WebView *newWebView = [[WebView alloc] init];
+  [newWebView setUIDelegate:self];
+  [newWebView setPolicyDelegate:self];
+
+  return newWebView;
+}
+
+- (void)webView:(WebView *)sender decidePolicyForNewWindowAction:(NSDictionary *)actionInformation request:(NSURLRequest *)request newFrameName:(NSString *)frameName decisionListener:(id<WebPolicyDecisionListener>)listener {
+  [[NSWorkspace sharedWorkspace] openURL:[actionInformation objectForKey:WebActionOriginalURLKey]];
+  [listener ignore];
+}
+
+- (void)webView:(WebView *)sender decidePolicyForNavigationAction:(NSDictionary *)actionInformation request:(NSURLRequest *)request frame:(WebFrame *)frame decisionListener:(id<WebPolicyDecisionListener>)listener {
+  if( [sender isEqual:webView] ) {
+    [listener use];
+  }
+  else {
+    [[NSWorkspace sharedWorkspace] openURL:[actionInformation objectForKey:WebActionOriginalURLKey]];
+    [listener ignore];
+  }
+}
+
+// end handle popup links
 
 - (void)webView:(WebView *)sender didClearWindowObject:(WebScriptObject *)windowScriptObject
        forFrame:(WebFrame *)frame {
