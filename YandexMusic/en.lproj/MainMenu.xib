@@ -276,7 +276,7 @@
 			<object class="NSWindowTemplate" id="972006081">
 				<int key="NSWindowStyleMask">13</int>
 				<int key="NSWindowBacking">2</int>
-				<string key="NSWindowRect">{{768, 416}, {640, 700}}</string>
+				<string key="NSWindowRect">{{768, 416}, {1160, 700}}</string>
 				<int key="NSWTFlags">1954022400</int>
 				<string key="NSWindowTitle">YandexMusic</string>
 				<string key="NSWindowClass">NSWindow</string>
@@ -311,7 +311,7 @@
 									<string>public.url-name</string>
 								</object>
 							</object>
-							<string key="NSFrameSize">{640, 700}</string>
+							<string key="NSFrameSize">{1160, 700}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView"/>
@@ -340,7 +340,7 @@
 							<bool key="AllowsUndo">YES</bool>
 						</object>
 					</object>
-					<string key="NSFrameSize">{640, 700}</string>
+					<string key="NSFrameSize">{1160, 700}</string>
 					<reference key="NSSuperview"/>
 					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="684252483"/>
