@@ -1,16 +1,19 @@
-# Procedure
-# =========
-# git tag -l
-# git tag VERSION_HERE
-# make
-# make upload
-# git log -p origin/master..
-# git push --tags origin master:master
+# Release procedure
+# =================
+#
+# $ git tag -l
+# $ git tag VERSION_HERE
+# $ make
+# $ make upload
+# $ git log -p origin/master..
+# $ git push --tags origin master:master
 
 VER = $(shell git describe --tags)
+BAREVER = $(shell echo $(VER) | tail -c+2)
 DMG107 = YandexMusicMacPlayer-$(VER)-10.7.dmg
 DMG108 = YandexMusicMacPlayer-$(VER)-10.8.dmg
 LASTTAG = $(shell git describe --abbrev=0 --tags)
+LASTTAGDATE = $(shell git log -1 --format=%ad --date=short $(LASTTAG))
 
 dmg:
 	if [ -a $(DMG107) ] ; \
@@ -63,6 +66,7 @@ upload:
 	sed -i -e 's/\(\[changelog\]: .*\/compare\/\)\(.*\)\.\.\.\(.*\)/\1\3\.\.\.$(VER)/' README.markdown
 	sed -i -e 's/\(\[10\.7\]: http.*\/\).*/\1$(DMG107)/' README.markdown
 	sed -i -e 's/\(\[10\.8\]: http.*\/\).*/\1$(DMG108)/' README.markdown
+	sed -i -e 's/\(#### Latest release\) (.*)/\1 ($(BAREVER), $(LASTTAGDATE))/' README.markdown
 	git commit -m 'update download links to $(VER)' README.markdown
 
 clean:
