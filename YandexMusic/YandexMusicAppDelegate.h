@@ -13,7 +13,7 @@
 @interface YandexMusicApp : NSApplication
 @end
 
-@interface YandexMusicAppDelegate : NSObject <NSApplicationDelegate, NSUserNotificationCenterDelegate>
+@interface YandexMusicAppDelegate : NSObject <NSApplicationDelegate, NSUserNotificationCenterDelegate, NSWindowDelegate>
 {
   NSWindow *window;
   WebView *webView;
@@ -39,6 +39,9 @@
 - (IBAction)rewindMusic:(id)sender;
 - (IBAction)showBrowser:(id)sender;
 - (IBAction)quit:(id)sender;
+
+// Window close hook
+- (BOOL)windowShouldClose:(id)sender;
 
 // Frame Load Delegate method
 - (void)webView:(WebView *)webView didClearWindowObject:(WebScriptObject *)windowScriptObject
