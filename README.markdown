@@ -12,4 +12,11 @@ It's just a little wrapper that adds media keys support (Play / Pause, Fast-forw
 
 [1]: https://github.com/mblsha/yandex-music-mac-player/compare/v0.1.0...v0.2.0
 
-(keyboard photo by [myfreeweb](http://www.flickr.com/photos/lol2fast4u/5036570278/))
+#### Contributors
+
+* [Phillip Kovalev](https://github.com/kaero)
+* [Nikolay Mukhanov](https://github.com/mukhanov)
+* [Michail Pishchagin](https://github.com/mblsha) (original author)
+* [Alexey Shamrin](https://github.com/shamrin) (current maintainer)
+
+Keyboard photo by [myfreeweb](http://www.flickr.com/photos/lol2fast4u/5036570278/).
