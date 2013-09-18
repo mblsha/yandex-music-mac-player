@@ -10,9 +10,9 @@ It's just a little wrapper that adds media keys support (Play / Pause, Fast-forw
 * [download for OS X 10.7][10.7] (Lion)
 * [recent changelog][changelog]
 
-[10.7]: http://s3.amazonaws.com/YandexMusicMacPlayer/YandexMusicMacPlayer-v0.2.0-10.7.dmg
-[10.8]: http://s3.amazonaws.com/YandexMusicMacPlayer/YandexMusicMacPlayer-v0.2.0-10.8.dmg
-[changelog]: https://github.com/mblsha/yandex-music-mac-player/compare/v0.1.0...v0.2.0
+[10.7]: http://s3.amazonaws.com/YandexMusicMacPlayer/YandexMusicMacPlayer-v0.2.1-10.7.dmg
+[10.8]: http://s3.amazonaws.com/YandexMusicMacPlayer/YandexMusicMacPlayer-v0.2.1-10.8.dmg
+[changelog]: https://github.com/mblsha/yandex-music-mac-player/compare/v0.2.0...v0.2.1
 
 #### Contributors
 
