@@ -42,16 +42,16 @@ dmgver: YandexMusicMacPlayer.dmg
 
 YandexMusicMacPlayer.dmg: build/Release/YandexMusic.app
 	mv build/Release/YandexMusic.app build/Release/Yandex\ Music\ Player.app
-	dmg/pkg-dmg \
+	scripts/pkg-dmg \
 	    --verbosity 2 \
 	    --volname "Yandex Music Player" \
 	    --source build/Release/Yandex\ Music\ Player.app \
 	    --sourcefile \
 	    --target YandexMusicMacPlayer.dmg \
 	    --icon build/Release/Yandex\ Music\ Player.app/Contents/Resources/app.icns  \
-	    --copy dmg/mozilla.dsstore:.DS_Store \
+	    --copy scripts/mozilla.dsstore:.DS_Store \
 	    --mkdir .background \
-	    --copy dmg/mozilla-background.jpg:.background/backgroundImage.jpg \
+	    --copy scripts/mozilla-background.jpg:.background/backgroundImage.jpg \
 	    --symlink  /Applications:Applications \
 	    --attribute V:.background \
 	    --idme
