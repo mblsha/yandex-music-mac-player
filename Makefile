@@ -7,6 +7,11 @@
 # $ make upload
 # $ git log -p origin/master..
 # $ git push --tags origin master:master
+#
+# Process logs and print download counter
+# =======================================
+#
+# $ make downloads
 
 VER = $(shell git describe --tags)
 BAREVER = $(shell echo $(VER) | tail -c+2)
@@ -31,7 +36,7 @@ dmg:
 	    make dmgver VER=$(VER) OSVER=10.8 ; \
 	fi
 
-# Usage: make dmgver VER=v0.2.0 OSVER=10.7
+# usage: make dmgver VER=v0.2.0 OSVER=10.7
 dmgver: YandexMusicMacPlayer.dmg
 	mv YandexMusicMacPlayer.dmg YandexMusicMacPlayer-$(VER)-$(OSVER).dmg
 
@@ -68,6 +73,11 @@ upload:
 	sed -i -e 's/\(\[10\.8\]: http.*\/\).*/\1$(DMG108)/' README.markdown
 	sed -i -e 's/\(#### Latest release\) (.*)/\1 ($(BAREVER), $(LASTTAGDATE))/' README.markdown
 	git commit -m 'update download links to $(VER)' README.markdown
+
+downloads:
+	mkdir -p logs/
+	scripts/process-s3-logs
+	scripts/show-downloads | grep GET | wc -l
 
 clean:
 	xcodebuild clean
