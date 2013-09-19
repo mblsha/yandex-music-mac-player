@@ -1,9 +1,8 @@
 .DS_Store
 .LSOverride
-build
-logs
+/build
+/logs
 
-YandexMusic.xcodeproj/mblsha.*
-YandexMusic.xcodeproj/xcuserdata
-YandexMusic.xcodeproj/project.xcworkspace/xcuserdata
-
+/YandexMusic.xcodeproj/mblsha.*
+/YandexMusic.xcodeproj/xcuserdata
+/YandexMusic.xcodeproj/project.xcworkspace/xcuserdata
