@@ -45,7 +45,7 @@ if __name__ == "__main__":
         for line in open(log):
             parsed = parse_s3_log_line(line)
             d = dict(zip(s3_names, parsed))
-            filename = d['http_method_uri_proto'].split()[1]
-            if filename.endswith('.dmg'):
-                print(d['datetime'], d['ip'], d['http_status'],
-                      d['http_method_uri_proto'], d['user_agent'])
+            method, url, proto = d['http_method_uri_proto'].split()
+            if d['key'].endswith('.dmg') and method == 'GET':
+                 print d['datetime'], d['ip'], d['key'], d['http_status'], \
+                       d['user_agent']

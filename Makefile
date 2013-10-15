@@ -77,7 +77,7 @@ upload:
 downloads:
 	mkdir -p logs/
 	scripts/process-s3-logs
-	scripts/show-downloads | grep GET | wc -l
+	scripts/show-downloads | wc -l
 
 clean:
 	xcodebuild clean
