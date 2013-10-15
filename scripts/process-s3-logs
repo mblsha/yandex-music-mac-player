@@ -2,16 +2,16 @@
 # ATTENTION! Use `make downloads`
 
 # download
-s3cmd sync --skip-existing s3://YandexMusicMacPlayer/logs/ logs/
+s3cmd sync --skip-existing s3://YandexMusicMacPlayerLogs/ logs/
 
 # "compress" and remove originals
 set ALL all-(date -u '+%Y-%m-%dT%H-%M-%S').log
 set LOGS (ls logs/ | grep -v '^all')
 for f in $LOGS
     cat logs/$f >> logs/$ALL
-    s3cmd del s3://YandexMusicMacPlayer/logs/$f
+    s3cmd del s3://YandexMusicMacPlayerLogs/$f
     rm logs/$f
 end
 
 # upload
-s3cmd sync logs/ s3://YandexMusicMacPlayer/logs/
+s3cmd sync logs/ s3://YandexMusicMacPlayerLogs/
