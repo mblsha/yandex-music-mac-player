@@ -4,47 +4,44 @@
 # Originally written by Krzysztof Kowalczyk:
 # http://blog.kowalczyk.info/article/a1e/Parsing-s3-log-files-in-python.html
 
+import sys
 import re
 from glob import glob
 
-s3_line_logpats  = r'(\S+) (\S+) \[(.*?)\] (\S+) (\S+) ' \
-           r'(\S+) (\S+) (\S+) "([^"]+)" ' \
-           r'(\S+) (\S+) (\S+) (\S+) (\S+) (\S+) ' \
-           r'"([^"]+)" "([^"]+)"'
+s3_line_logpats  = r'(?P<bucket_owner>\S+) (?P<bucket>\S+) \[(?P<datetime>.*?)\] (?P<ip>\S+) (?P<requestor_id>\S+) (?P<request_id>\S+) (?P<operation>\S+) (?P<key>\S+) (?P<http_method_uri_proto>-|"[^"]+") (?P<http_status>\S+) (?P<s3_error>\S+) (?P<bytes_sent>\S+) (?P<object_size>\S+) (?P<total_time>\S+) (?P<turn_around_time>\S+) (?P<referer>-|"[^"]+") (?P<user_agent>-|"[^"]+")'
 
 s3_line_logpat = re.compile(s3_line_logpats)
 
-(S3_LOG_BUCKET_OWNER, S3_LOG_BUCKET, S3_LOG_DATETIME, S3_LOG_IP,
-S3_LOG_REQUESTOR_ID, S3_LOG_REQUEST_ID, S3_LOG_OPERATION, S3_LOG_KEY,
-S3_LOG_HTTP_METHOD_URI_PROTO, S3_LOG_HTTP_STATUS, S3_LOG_S3_ERROR,
-S3_LOG_BYTES_SENT, S3_LOG_OBJECT_SIZE, S3_LOG_TOTAL_TIME,
-S3_LOG_TURN_AROUND_TIME, S3_LOG_REFERER, S3_LOG_USER_AGENT) = range(17)
-
-s3_names = ("bucket_owner", "bucket", "datetime", "ip", "requestor_id",
-"request_id", "operation", "key", "http_method_uri_proto", "http_status",
-"s3_error", "bytes_sent", "object_size", "total_time", "turn_around_time",
-"referer", "user_agent")
-
 def parse_s3_log_line(line):
     match = s3_line_logpat.match(line)
-    result = [match.group(1+n) for n in range(17)]
-    return result
+    if match is None:
+        sys.stderr.write('Error line:' + repr(line))
+    gd = match.groupdict()
+    for k in ('http_method_uri_proto', 'referer', 'user_agent'):
+        if gd[k].startswith('"') and gd[k].startswith('"'):
+            gd[k] = gd[k][1:-1]
+    return gd
 
 def dump_parsed_s3_line(parsed):
-    for (name, val) in zip(s3_names, parsed):
+    for name in sorted(parsed):
+        val = parsed[name]
         print("%s: %s" % (name, val))
 
 def test():
-    l = r'607c4573f2972c26aff39f7e56ff0490881a35c19b9bf94072cbab8c3219f948 kjkpub [06/Mar/2009:23:13:28 +0000] 41.221.20.231 65a011a29cdf8ec533ec3d1ccaae921c C46E93FF2E865AC1 REST.GET.OBJECT sumatrapdf/rel/SumatraPDF-0.9.1.zip "GET /sumatrapdf/rel/SumatraPDF-0.9.1.zip HTTP/1.1" 206 - 43457 1003293 697 611 "http://kjkpub.s3.amazonaws.com/sumatrapdf/rel/" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)"'
-    parsed = parse_s3_log_line(l)
-    dump_parsed_s3_line(parsed)
+    lines = [r'607c4573f2972c26aff39f7e56ff0490881a35c19b9bf94072cbab8c3219f948 kjkpub [06/Mar/2009:23:13:28 +0000] 41.221.20.231 65a011a29cdf8ec533ec3d1ccaae921c C46E93FF2E865AC1 REST.GET.OBJECT sumatrapdf/rel/SumatraPDF-0.9.1.zip "GET /sumatrapdf/rel/SumatraPDF-0.9.1.zip HTTP/1.1" 206 - 43457 1003293 697 611 "http://kjkpub.s3.amazonaws.com/sumatrapdf/rel/" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)"',
+            r'38468bf7e4f6f7740785bea1a9829536b787f264961ddb9d45cfd008a564b6ef YandexMusicMacPlayer [15/Oct/2013:09:49:59 +0000] 193.104.14.1 38468bf7e4f6f7740785bea1a9829536b787f264961ddb9d45cfd008a564b6ef 1D0E6CEDAD4C536A REST.COPY.OBJECT_GET logs/all-2013-09-18T16-52-24.log - 200 - - 446382 - - - - -']
+    for line in lines:
+        print '---'
+        parsed = parse_s3_log_line(line)
+        dump_parsed_s3_line(parsed)
 
 if __name__ == "__main__":
     #test()
     for log in glob('logs/all*'):
         for line in open(log):
-            parsed = parse_s3_log_line(line)
-            d = dict(zip(s3_names, parsed))
+            d = parse_s3_log_line(line)
+            if d['http_method_uri_proto'] == '-':
+                continue
             method, url, proto = d['http_method_uri_proto'].split()
             if d['key'].endswith('.dmg') and method == 'GET':
                  print d['datetime'], d['ip'], d['key'], d['http_status'], \
