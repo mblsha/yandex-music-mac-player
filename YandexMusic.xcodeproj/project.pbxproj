@@ -21,6 +21,9 @@
 		79F4C8B0141286F6004B2422 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79F4C8AF141286F6004B2422 /* WebKit.framework */; };
 		79F4C8B81413CB05004B2422 /* menu_logo_16.png in Resources */ = {isa = PBXBuildFile; fileRef = 79F4C8B71413CB05004B2422 /* menu_logo_16.png */; };
 		79F4C8BA1413CB28004B2422 /* app.icns in Resources */ = {isa = PBXBuildFile; fileRef = 79F4C8B91413CB28004B2422 /* app.icns */; };
+		94465D2D18F7F751002EE7E0 /* YMTabButtonPanelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94465D2C18F7F751002EE7E0 /* YMTabButtonPanelView.m */; };
+		94465D3118F8522E002EE7E0 /* YMTabButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94465D3018F8522E002EE7E0 /* YMTabButtonView.m */; };
+		94465D3418FDB313002EE7E0 /* YMTabWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94465D3318FDB313002EE7E0 /* YMTabWebView.m */; };
 		B62E923C1729CCC200FC1547 /* SPMediaKeyTap.m in Sources */ = {isa = PBXBuildFile; fileRef = B62E923B1729CCC200FC1547 /* SPMediaKeyTap.m */; };
 		B6EADC541729CF4100C928D6 /* NSObject+SPInvocationGrabbing.m in Sources */ = {isa = PBXBuildFile; fileRef = B6EADC531729CF4100C928D6 /* NSObject+SPInvocationGrabbing.m */; };
 		B6EADC561729DD4E00C928D6 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6EADC551729DD4E00C928D6 /* Carbon.framework */; };
@@ -61,6 +64,12 @@
 		79F4C8B41413C03D004B2422 /* YandexMusic.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = YandexMusic.entitlements; sourceTree = "<group>"; };
 		79F4C8B71413CB05004B2422 /* menu_logo_16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menu_logo_16.png; path = Resources/menu_logo_16.png; sourceTree = "<group>"; };
 		79F4C8B91413CB28004B2422 /* app.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = app.icns; path = Resources/app.icns; sourceTree = "<group>"; };
+		94465D2B18F7F751002EE7E0 /* YMTabButtonPanelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMTabButtonPanelView.h; sourceTree = "<group>"; };
+		94465D2C18F7F751002EE7E0 /* YMTabButtonPanelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMTabButtonPanelView.m; sourceTree = "<group>"; };
+		94465D2F18F8522E002EE7E0 /* YMTabButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMTabButtonView.h; sourceTree = "<group>"; };
+		94465D3018F8522E002EE7E0 /* YMTabButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMTabButtonView.m; sourceTree = "<group>"; };
+		94465D3218FDB313002EE7E0 /* YMTabWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMTabWebView.h; sourceTree = "<group>"; };
+		94465D3318FDB313002EE7E0 /* YMTabWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMTabWebView.m; sourceTree = "<group>"; };
 		B62E923A1729CCC200FC1547 /* SPMediaKeyTap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPMediaKeyTap.h; path = SPMediaKeyTap/SPMediaKeyTap.h; sourceTree = SOURCE_ROOT; };
 		B62E923B1729CCC200FC1547 /* SPMediaKeyTap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPMediaKeyTap.m; path = SPMediaKeyTap/SPMediaKeyTap.m; sourceTree = SOURCE_ROOT; };
 		B6EADC521729CF4100C928D6 /* NSObject+SPInvocationGrabbing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+SPInvocationGrabbing.h"; path = "SPMediaKeyTap/SPInvocationGrabbing/NSObject+SPInvocationGrabbing.h"; sourceTree = SOURCE_ROOT; };
@@ -135,6 +144,7 @@
 		79369176140F70EE0064ADCE /* YandexMusic */ = {
 			isa = PBXGroup;
 			children = (
+				94465D2E18F7F757002EE7E0 /* Views */,
 				79F4C8B41413C03D004B2422 /* YandexMusic.entitlements */,
 				79369182140F70EE0064ADCE /* YandexMusicAppDelegate.h */,
 				79369183140F70EE0064ADCE /* YandexMusicAppDelegate.m */,
@@ -180,6 +190,19 @@
 				79369196140F70EE0064ADCE /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		94465D2E18F7F757002EE7E0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				94465D2B18F7F751002EE7E0 /* YMTabButtonPanelView.h */,
+				94465D2C18F7F751002EE7E0 /* YMTabButtonPanelView.m */,
+				94465D2F18F8522E002EE7E0 /* YMTabButtonView.h */,
+				94465D3018F8522E002EE7E0 /* YMTabButtonView.m */,
+				94465D3218FDB313002EE7E0 /* YMTabWebView.h */,
+				94465D3318FDB313002EE7E0 /* YMTabWebView.m */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -293,9 +316,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94465D3418FDB313002EE7E0 /* YMTabWebView.m in Sources */,
 				7936917D140F70EE0064ADCE /* main.m in Sources */,
 				79369184140F70EE0064ADCE /* YandexMusicAppDelegate.m in Sources */,
+				94465D3118F8522E002EE7E0 /* YMTabButtonView.m in Sources */,
 				B62E923C1729CCC200FC1547 /* SPMediaKeyTap.m in Sources */,
+				94465D2D18F7F751002EE7E0 /* YMTabButtonPanelView.m in Sources */,
 				B6EADC541729CF4100C928D6 /* NSObject+SPInvocationGrabbing.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
