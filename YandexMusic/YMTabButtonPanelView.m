@@ -20,13 +20,15 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.buttons = [NSMutableArray array];
+        self.translatesAutoresizingMaskIntoConstraints = YES;
     }
     return self;
 }
 
 
-- (void) layout{
-    [super layout];
+
+- (void) resizeSubviewsWithOldSize:(NSSize)oldSize{
+    [super resizeSubviewsWithOldSize:oldSize];
     NSRect bounds = self.bounds;
     CGFloat width = NSWidth(bounds)/self.buttons.count;
     CGFloat height = NSHeight(bounds);
@@ -35,13 +37,13 @@
         button.frame = NSMakeRect(offsetX, 0, width, height);
         offsetX += width;
     }
-    
+
 }
+
 
 -(void) refresh{
     [self removeAllButtons];
     [self createButtons];
-    //todo make it wioth setneeds layout
     [self setNeedsLayout:YES];
     [self layout];
     

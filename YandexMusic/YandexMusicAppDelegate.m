@@ -87,6 +87,7 @@
 
 - (void) openTabWithURL:(NSURL*) url{
     YMTabWebView* newTabView = [[YMTabWebView alloc] initWithFrame:self.tabContainer.bounds];
+    newTabView.autoresizingMask = NSViewWidthSizable|NSViewHeightSizable;
     newTabView.delegate = self;
     [newTabView setUrl:url];
     [newTabView setHidden:YES];
