@@ -22,6 +22,7 @@
 @property (nonatomic, strong) NSString* title;
 
 - (void) setUrl:(NSURL*) url;
+- (void) refresh;
 
 - (BOOL) isPlaying;
 - (void) play;

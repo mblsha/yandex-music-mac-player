@@ -8,10 +8,13 @@
 
 #import "YMTabButtonView.h"
 
+static const CGFloat BUTTON_WIDTH = 40;
+
 @interface YMTabButtonView ()
 
 @property (nonatomic, strong) NSTextField* titleLabel;
 @property (nonatomic, strong) NSButton* closeButton;
+@property (nonatomic, strong) NSButton* refreshButton;
 @end
 
 @implementation YMTabButtonView
@@ -31,9 +34,9 @@
         [self addSubview:titleLabel];
         self.titleLabel = titleLabel;
         
-        NSButton* closeButton = [[NSButton alloc] initWithFrame:NSMakeRect(NSWidth(frame) - 40,
+        NSButton* closeButton = [[NSButton alloc] initWithFrame:NSMakeRect(NSWidth(frame) - BUTTON_WIDTH,
                                                                           0,
-                                                                          40, NSHeight(frame))];
+                                                                          BUTTON_WIDTH, NSHeight(frame))];
         closeButton.autoresizingMask = NSViewMinXMargin|NSViewHeightSizable;
         closeButton.title = @"X";
         closeButton.target = self;
@@ -41,7 +44,16 @@
         [self addSubview:closeButton];
         self.closeButton = closeButton;
 
-        
+        NSButton* refreshButton = [[NSButton alloc] initWithFrame:NSMakeRect(NSWidth(frame) - BUTTON_WIDTH*2,
+                                                                           0,
+                                                                           BUTTON_WIDTH, NSHeight(frame))];
+        refreshButton.autoresizingMask = NSViewMinXMargin|NSViewHeightSizable;
+        refreshButton.title = @"\u27f2";
+        refreshButton.target = self;
+        refreshButton.action = @selector(refreshButtonPressed);
+        [self addSubview:refreshButton];
+        self.refreshButton = refreshButton;
+       
     }
     return self;
 }
@@ -50,6 +62,10 @@
 
 - (void) closeButtonPressed{
     [self.delegate tabButtonClosePressed:self];
+}
+
+- (void) refreshButtonPressed{
+    [self.delegate tabButtonRefreshPressed:self];
 }
 
 - (void) mouseUp:(NSEvent *)theEvent{

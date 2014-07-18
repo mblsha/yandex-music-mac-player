@@ -16,6 +16,7 @@
 
 - (void) tabButtonPanelButtonSelected:(NSUInteger) index;
 - (void) tabButtonPanelRequestedCloseTab:(NSUInteger) index;
+- (void) tabButtonPanelRequestedRefreshTab:(NSUInteger) index;
 
 @end
 

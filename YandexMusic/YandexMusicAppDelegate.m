@@ -68,17 +68,17 @@
 {
     self.tabViews = [NSMutableArray array];
     self.tabPanel.delegate = self;
-  keyTap = [[SPMediaKeyTap alloc] initWithDelegate:self];
-  if([SPMediaKeyTap usesGlobalMediaKeyTap])
-    [keyTap startWatchingMediaKeys];
-  else
-    NSLog(@"Media key monitoring disabled");
-
-  statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
-  [statusItem setMenu:[self statusMenu]];
-  [statusItem setImage:[NSImage imageNamed:@"menu_logo_16.png"]];
-  [statusItem setHighlightMode:YES];
-
+    keyTap = [[SPMediaKeyTap alloc] initWithDelegate:self];
+    if([SPMediaKeyTap usesGlobalMediaKeyTap])
+        [keyTap startWatchingMediaKeys];
+    else
+        NSLog(@"Media key monitoring disabled");
+    
+    statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
+    [statusItem setMenu:[self statusMenu]];
+    [statusItem setImage:[NSImage imageNamed:@"menu_logo_16.png"]];
+    [statusItem setHighlightMode:YES];
+    
     [self openTabWithURL:[NSURL URLWithString:@"http://music.yandex.ru" ]];
 
 }
@@ -121,6 +121,10 @@
         }
     }
     [self.tabPanel refresh];
+}
+
+- (void) refreshTabWithIndex:(NSUInteger) index{
+    [self.tabViews[index] refresh];
 }
 
 - (YMTabWebView*) responderTab{
@@ -256,5 +260,9 @@
 - (void) tabButtonPanelRequestedCloseTab:(NSUInteger)index{
     [self closeTabWithIndex:index];
 }
+- (void) tabButtonPanelRequestedRefreshTab:(NSUInteger) index{
+    [self refreshTabWithIndex:index];
+}
+
 
 @end

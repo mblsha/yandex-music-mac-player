@@ -85,5 +85,11 @@
     [self.delegate tabButtonPanelRequestedCloseTab:button.tag];
 }
 
+- (void) tabButtonRefreshPressed:(YMTabButtonView *)button{
+    [self.delegate tabButtonPanelRequestedRefreshTab:button.tag];
+}
+
+
+
 
 @end

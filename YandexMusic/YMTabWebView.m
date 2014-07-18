@@ -44,6 +44,11 @@
     self.webView.mainFrameURL = url.absoluteString;
 }
 
+
+- (void) refresh{
+    [self.webView reload:nil];
+}
+
 - (BOOL) isPlaying{
     NSString *state = [self eval:@"Mu.Player.state"];
     return [state isEqualTo:@"playing"];

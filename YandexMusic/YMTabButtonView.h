@@ -15,6 +15,7 @@
 
 - (void) tabButtonPressed:(YMTabButtonView*) button;
 - (void) tabButtonClosePressed:(YMTabButtonView*) button;
+- (void) tabButtonRefreshPressed:(YMTabButtonView*) button;
 
 @end
 
