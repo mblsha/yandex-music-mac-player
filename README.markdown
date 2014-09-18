@@ -1,1 +1,3 @@
-# yandex-music-mac-player is deprecated. Use Chrome with Keysocket extension and open music.yandex.ru in a browser tab.
+# Deprecated!
+
+## Use Google Chrome with [Keysocket](https://github.com/borismus/keysocket) extension installed. Just open music.yandex.ru in Chrome tab.
