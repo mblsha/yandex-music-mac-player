@@ -7,7 +7,6 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import <WebKit/WebKit.h>
 #import "../SPMediaKeyTap/SPMediaKeyTap.h"
 
 @interface YandexMusicApp : NSApplication
@@ -16,7 +15,6 @@
 @interface YandexMusicAppDelegate : NSObject <NSApplicationDelegate, NSUserNotificationCenterDelegate, NSWindowDelegate>
 {
   NSWindow *window;
-  WebView *webView;
   NSMenu *statusMenu;
   NSStatusItem *statusItem;
   NSMenuItem *playMenuItem;
@@ -25,14 +23,9 @@
 }
 
 @property (strong) IBOutlet NSWindow *window;
-@property (strong) IBOutlet WebView *webView;
 @property (strong) IBOutlet NSMenu *statusMenu;
 @property (strong) IBOutlet NSMenuItem *playMenuItem;
 @property (strong) IBOutlet NSMenuItem *trackInfoMenuItem;
-
-- (void)musicPlayPause;
-- (void)musicFastForward;
-- (void)musicRewind;
 
 - (IBAction)playPauseMusic:(id)sender;
 - (IBAction)fastForwardMusic:(id)sender;
@@ -42,17 +35,5 @@
 
 // Window close hook
 - (BOOL)windowShouldClose:(id)sender;
-
-// Frame Load Delegate method
-- (void)webView:(WebView *)webView didClearWindowObject:(WebScriptObject *)windowScriptObject
-       forFrame:(WebFrame *)frame;
-
-// configure what is available to use from JavaScript
-+ (BOOL)isSelectorExcludedFromWebScript:(SEL)selector;
-+ (NSString *) webScriptNameForSelector:(SEL)sel;
-
-// methods to share with JavaScript
-- (void) jsLog:(NSString*)theMessage;
-- (void) jsNotify:(int)isPlaying;
 
 @end

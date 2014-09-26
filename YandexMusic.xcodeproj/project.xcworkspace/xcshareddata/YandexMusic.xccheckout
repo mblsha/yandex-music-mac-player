@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>043A799D-7457-4A36-98BE-402EB9707B14</string>
+	<key>IDESourceControlProjectName</key>
+	<string>YandexMusic</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>BE072296-20D4-4E37-AE7B-B18D4640157F</key>
+		<string>https://github.com/Krizai/yandex-music-mac-player.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>YandexMusic.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>BE072296-20D4-4E37-AE7B-B18D4640157F</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/Krizai/yandex-music-mac-player.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>BE072296-20D4-4E37-AE7B-B18D4640157F</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>BE072296-20D4-4E37-AE7B-B18D4640157F</string>
+			<key>IDESourceControlWCCName</key>
+			<string>yandex-music-mac-player</string>
+		</dict>
+	</array>
+</dict>
+</plist>
