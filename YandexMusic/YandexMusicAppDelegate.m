@@ -179,21 +179,15 @@
 }
 
 - (void)musicPlayPause {
-  NSString *state = [self eval:@"Mu.Player.state"];
-  if ([state isEqualTo:@"waiting"]) {
-    [self eval:@"Mu.events.trigger(\"player_start\")"];
-  } else if (![state isEqualTo:@"playing"]) {
-    [self eval:@"Mu.Player.resume()"];
-  } else
-    [self eval:@"Mu.Player.pause()"];
+  [self eval:@"jQuery('.player-controls__btn.player-controls__btn_play').click()"];
 }
 
 - (void)musicFastForward {
-  [self eval:@"Mu.Songbird.playNext()"];
+  [self eval:@"jQuery('.player-controls__btn.player-controls__btn_next').click()"];
 }
 
 - (void)musicRewind {
-  [self eval:@"Mu.Songbird.playPrev()"];
+  [self eval:@"jQuery('.player-controls__btn.player-controls__btn_prev').click()"];
 }
 
 // show track info in notification center
